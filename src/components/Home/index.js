@@ -15,7 +15,8 @@ import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
 const Home=()=>{
     const[letterClass,setLetterClass] = useState('text-animate')
     const nameArray = ['h','y','a','n','i']
-    const jobArray = ['D','a','t','a',' ','S','c','i','e','n','t','i','s','t.']
+    const jobArray = [['T','u','r','n','i','n','g',' ','D','a','t','a',' ','i','n','t','o',' ','R','e','a','l','-','W','o','r','l','d',' ','S','o','l','u','t','i','o','n','s']
+]
     
 useEffect(() => {
     const timeoutId = setTimeout(() => {
@@ -45,7 +46,7 @@ useEffect(() => {
                     <AnimatedLetters letterClass={letterClass} strArray={jobArray} idx={20}  />
                     
                     </h1>
-                    <h2>Data Scientist/Machine Learning Enthusiast</h2>
+                    <h2>Crafting AI powered Experiences.</h2>
                     <a
                         href="/portfolio/resume.pdf"
                         target="_blank"
