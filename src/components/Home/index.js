@@ -39,7 +39,17 @@ useEffect(() => {
                     
                     </h1>
                     <h2>Data Scientist/Machine Learning Enthusiast</h2>
+                    <a
+                        href="/portfolio/resume.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flat-button"
+                        >
+                        GO TO MY RESUME
+                    </a>
+
                     <Link to="/contact" className='flat-button'>CONTACT ME</Link>
+
                 </div>
             </div>
             <Loader type="pacman" />
