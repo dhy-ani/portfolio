@@ -38,3 +38,23 @@ textarea{
   animation-fill-mode: forwards;
 
 }
+body, html{
+  overflow-y: auto;
+}
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .contact-zone,
+  .about-zone {
+    flex: 1 1 100%;
+  }
+
+  .contact-form .half {
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .flat-button {
+    width: 100%;
+    float: none;
+  }
+}

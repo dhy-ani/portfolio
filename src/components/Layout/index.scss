@@ -2,33 +2,10 @@
     width:100%;
     height:100%;
     position:absolute;
-    //border: 2px solid red; // temporary debug
-}
-
-.top-tags{
-    bottom:auto;
-    top:35px;
-}
-
-.tags{
-    color:#ffd700;
-    opacity:0.6;
-    position:absolute;
-    bottom:0px;
-    left: 120px;    
-    font-size: 18px;
-    font-family:'La Belle Aurore', cursive;
-}
-.tags.bottom-tags {
-  bottom: 120px;
   
 }
 
-.bottom-tag-html {
-  display: block;
-  margin-top: 5px;
-  color: #ffd700;
-}
+
 
 .container{
     width:100%;
