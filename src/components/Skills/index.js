@@ -17,7 +17,7 @@ const SkillsCarousel = () => {
     mode: "free",
     slides: {
       perView: 3,
-      spacing: 1,
+      spacing: 7,
     },
     centered: true
   });

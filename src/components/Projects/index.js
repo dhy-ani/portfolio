@@ -1,6 +1,8 @@
 import React from 'react';
 import './index.scss'; 
 import SkillsCarousel from '../Skills'
+import Loader from 'react-loaders';
+import 'loaders.css/loaders.min.css'; 
 
 const projects = [
   {
@@ -41,13 +43,13 @@ const CardContent = ({ children }) => (
 
 const Projects = () => {
   return (
-    
+    <>
     <div className="container project-page">
           <h2 className="section-title">Skills</h2>
   <div className="skills-container">
     <><SkillsCarousel></SkillsCarousel></>
   </div>
-    <h1 className="project-title">Projects</h1>
+    <h1 className="section-title">Projects</h1>
     <div className="project-grid">
         {projects.map(({ title, description, tech, link }) => (
             <Card key={title}>
@@ -63,6 +65,8 @@ const Projects = () => {
         ))}
           </div>
       </div>
+        <Loader type="ball-scale-multiple" active/>
+    </>
   );
 };
 

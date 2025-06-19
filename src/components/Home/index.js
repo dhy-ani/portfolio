@@ -4,6 +4,8 @@ import './index.scss'
 import { useEffect, useState } from 'react'
 import AnimatedLetters from '../AnimatedLetters'
 import Loader from 'react-loaders'
+import 'loaders.css/loaders.min.css'; 
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact } from '@fortawesome/free-brands-svg-icons/faReact'
 import { faPython } from '@fortawesome/free-brands-svg-icons/faPython'
@@ -11,6 +13,7 @@ import { faJava } from '@fortawesome/free-brands-svg-icons/faJava'
 import { faCss3 } from '@fortawesome/free-brands-svg-icons'
 import { faGit } from '@fortawesome/free-brands-svg-icons/faGit'
 import { faDocker } from '@fortawesome/free-brands-svg-icons/faDocker'
+
 
 const Home=()=>{
     const[letterClass,setLetterClass] = useState('text-animate')
@@ -90,7 +93,7 @@ useEffect(() => {
 
                 </div>
             </div>
-            <Loader type="pacman" />
+            <Loader type="ball-scale-multiple" active/>
         </>
     )
 }

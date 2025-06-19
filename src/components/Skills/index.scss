@@ -2,12 +2,12 @@
 
 
 
-.skills-section, .project-section {
+.skills-section {
   max-width: 1000px;
   margin: 0 auto 4rem auto;
 }
 
-.skills-section h2, .project-section h2 {
+.skills-section h2  {
   font-size: 1.6rem;
   margin-bottom: 1rem;
 }
@@ -73,7 +73,7 @@
 }
 
 .skill-card {
-  background: #c7e3f0;
+  background: #cbe3ed;
   color: #111;
   font-weight: bold;
   font-size: 1rem;
@@ -83,21 +83,11 @@
   justify-content: center;
   align-items: center;
   box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+  transition: transform 0.1s ease;
 }
 
 .keen-slider__slide {
   display: flex;
   justify-content: center;
   align-items: center;
-}
-
-.projects-section {
-  padding: 3rem;
-}
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 2rem;
 }

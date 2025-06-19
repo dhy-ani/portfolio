@@ -4,7 +4,11 @@ import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Loader from 'react-loaders';
+import 'loaders.css/loaders.min.css'; 
+
 const AboutAndContact = () => (
+  <>
   <div className="about-page-card">
 
     <div className="about-right">
@@ -55,6 +59,8 @@ I’m here to keep learning, keep building, and hopefully, keep making something
       </ul>
     </div>
   </div>
+      <Loader type="ball-scale-multiple" active/>
+    </>
 );
 
 export default AboutAndContact
