@@ -14,17 +14,16 @@ const skillCategories = [
 const SkillsCarousel = () => {
   const [sliderRef] = useKeenSlider({
     loop: true,
-    mode: 'free-snap',
+    mode: "free",
     slides: {
       perView: 3,
-      spacing: 15,
+      spacing: 1,
     },
     centered: true
   });
 
   return (
     <div className="skills-section">
-      <h2 className="section-title">Skills</h2>
       <div ref={sliderRef} className="keen-slider">
         {skillCategories.map((skill, idx) => (
           <div key={idx} className="keen-slider__slide skill-card">

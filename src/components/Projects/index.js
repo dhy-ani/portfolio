@@ -41,24 +41,28 @@ const CardContent = ({ children }) => (
 
 const Projects = () => {
   return (
-    <><SkillsCarousel></SkillsCarousel>
+    
     <div className="container project-page">
-          <h1 className="project-title">Projects</h1>
-          <div className="project-grid">
-              {projects.map(({ title, description, tech, link }) => (
-                  <Card key={title}>
-                      <CardContent>
-                          <h3>{title}</h3>
-                          <p>{description}</p>
-                          <div className="badge-container">
-                              {tech.map(tag => <Badge key={tag}>{tag}</Badge>)}
-                          </div>
-                          <a href={link} target="_blank" rel="noopener noreferrer">Visit →</a>
-                      </CardContent>
-                  </Card>
-              ))}
+          <h2 className="section-title">Skills</h2>
+  <div className="skills-container">
+    <><SkillsCarousel></SkillsCarousel></>
+  </div>
+    <h1 className="project-title">Projects</h1>
+    <div className="project-grid">
+        {projects.map(({ title, description, tech, link }) => (
+            <Card key={title}>
+                <CardContent>
+                    <h3>{title}</h3>
+                    <p>{description}</p>
+                    <div className="badge-container">
+                        {tech.map(tag => <Badge key={tag}>{tag}</Badge>)}
+                    </div>
+                    <a href={link} target="_blank" rel="noopener noreferrer">Visit →</a>
+                </CardContent>
+            </Card>
+        ))}
           </div>
-      </div></>
+      </div>
   );
 };
 
