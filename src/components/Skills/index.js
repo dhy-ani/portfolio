@@ -1,14 +1,14 @@
-
 import { useKeenSlider } from 'keen-slider/react';
 import 'keen-slider/keen-slider.min.css';
 import './index.scss';
 
 const skillCategories = [
-  'Machine Learning & Data Science',
-  'Frontend Development',
-  'Backend APIs & Databases',
-  'Cloud & DevOps',
-  'Creative AI Projects'
+  'AI/ML & Computer Vision',
+  'Full-Stack Web Development',
+  'FastAPI & Spring Boot APIs',
+  'PostgreSQL',
+  'Cloud (AWS, Firebase)',
+  'Data Visualization & NLP',
 ];
 
 const SkillsCarousel = () => {
@@ -18,8 +18,9 @@ const SkillsCarousel = () => {
     slides: {
       perView: 3,
       spacing: 7,
+      origin:"auto"
     },
-    centered: true
+    
   });
 
   return (

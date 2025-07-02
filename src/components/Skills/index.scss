@@ -27,11 +27,6 @@
   font-weight: 500;
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1.5rem;
-}
 
 .card {
   background-color: #fff;
@@ -62,9 +57,13 @@
 .card-content a:hover {
   text-decoration: underline;
 }
+
 .skills-section {
   text-align: center;
   margin-bottom: 4rem;
+  padding-left: 10px;
+  padding-right: 10px;
+
 }
 
 .section-title {
