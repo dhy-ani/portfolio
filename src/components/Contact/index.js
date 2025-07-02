@@ -14,11 +14,11 @@ const AboutAndContact = () => (
     <div className="about-right">
       <h1>Hey, I’m Dhyani</h1>
       <p>
-       I’m someone who finds meaning at the intersection of people and technology. I don’t just build projects — I craft tools that solve real problems and leave a positive mark. Whether I’m training AI models to recommend skincare products or designing a fashion trend engine using embeddings and clustering, what drives me is curiosity and the desire to help people feel seen, heard, and understood.
+       I’m someone who finds meaning at the intersection of people and technology. I don’t just build projects, I craft tools that solve real problems and leave a positive mark. 
 
-I value clarity, creativity, and compassion — not just in code, but in communication, teamwork, and how I show up in the world. I love exploring where data meets design, and I’m especially drawn to problems that blend structure with storytelling — like visualizing global risk, making science more accessible, or mapping trends across cultures.
+I value clarity, creativity, and compassion; not just in code, but in communication, teamwork, and how I show up in the world. I love exploring where data meets design, and I’m especially drawn to problems that blend structure with storytelling, making science more accessible.
 
-Outside of my screen, I’m a big fan of tennis, long walks with music, and thinking about how the smallest ideas — like a line of code or a single image — can scale to something unexpectedly powerful.
+Outside of my screen, I’m a big fan of tennis, long walks with music, and thinking about how the smallest ideas like a line of code or a research question can scale to something unexpectedly impactful.
 
 I’m here to keep learning, keep building, and hopefully, keep making something that matters.
       </p>
@@ -29,12 +29,17 @@ I’m here to keep learning, keep building, and hopefully, keep making something
       <p>BSc in Computer Science — New Jersey Institute of Technology</p>
 
       <hr />
-
-      <h2>Experience</h2>
-      <ul className="about-list">
-        <li><p><strong>AI Developer</strong> · Trend Recommender | FastAPI • FAISS • CLIP</p></li>
-        <li><p><strong>Data Scientist</strong> · Risk Dashboard | Streamlit • Plotly</p></li>
-      </ul>
+      <div className="activities-section">
+        <h2>Activities & Leadership</h2>
+        <p>
+          I actively lead and contribute to student organizations focused on equity, education, and computer science outreach.
+        </p>
+        <ul className="activities-list">
+          <li><strong>Outreach Chair, Girl Up NJIT:</strong> Lead university-wide campaigns and organize events to promote gender equity and empowerment through tech-driven initiatives.</li>
+          <li><strong>Curriculum Manager, Lyra STEM:</strong> Design and manage engaging STEM lesson plans for high and elementary school students that make complex concepts accessible and fun.</li>
+          <li><strong>Treasurer, Kids Who Code:</strong> Oversee club finances, funding, and event planning to expand youth access to hands-on coding education.</li>
+        </ul>
+      </div>
 
       <hr />
 

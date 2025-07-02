@@ -12,16 +12,15 @@ const skillCategories = [
 ];
 
 const SkillsCarousel = () => {
-  const [sliderRef] = useKeenSlider({
-    loop: true,
-    mode: "free",
-    slides: {
-      perView: 3,
-      spacing: 7,
-      origin:"auto"
-    },
-    
-  });
+const [sliderRef] = useKeenSlider({
+  loop: true,
+  mode: "free",
+  slides: {
+    perView: "auto", 
+    spacing: 16,     
+  }
+});
+
 
   return (
     <div className="skills-section">
