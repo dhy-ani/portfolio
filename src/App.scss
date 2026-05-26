@@ -207,6 +207,8 @@ body.light-mode {
   .hero-intro-headline { color: #7060a8 !important; text-shadow: none !important; }
   .hero-label { color: #9c7800 !important; text-shadow: none !important; }
   h1 { color: #2d2244 !important; }
+  .hero-letter { color: #2d2244 !important; }
+  .hero-letter:hover { color: #c0507a !important; text-shadow: none !important; }
   .headline-accent { color: #c0507a !important; text-shadow: none !important; }
   .btn-terminal { border-color: #c0507a !important; color: #c0507a !important; &:hover { background: rgba(192,80,122,0.08) !important; color: #2d2244 !important; } }
   .btn-terminal.secondary { border-color: #6052b0 !important; color: #6052b0 !important; &:hover { background: rgba(96,82,176,0.08) !important; color: #2d2244 !important; } }

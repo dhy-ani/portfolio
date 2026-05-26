@@ -88,6 +88,32 @@ h1 {
   font-family: 'Coolvetica', sans-serif;
 }
 
+.hero-letter {
+  display: inline-block;
+  color: #ffffff;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+  cursor: default;
+
+  &:hover {
+    color: #f4a0b5;
+    text-shadow: 0 0 14px rgba(244, 160, 181, 0.7);
+    animation: heroLetterJump 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  }
+}
+
+.hero-letter-space {
+  display: inline-block;
+  white-space: pre;
+}
+
+@keyframes heroLetterJump {
+  0%   { transform: translateY(0)     scale(1,    1);    }
+  28%  { transform: translateY(-10px) scale(0.9,  1.1);  }
+  52%  { transform: translateY(-4px)  scale(1.04, 0.96); }
+  74%  { transform: translateY(-8px)  scale(0.97, 1.03); }
+  100% { transform: translateY(0)     scale(1,    1);    }
+}
+
 .headline-accent {
   font-family: 'LaBelleAurore', cursive;
   color: #f4a0b5;

@@ -8,6 +8,8 @@ import { faGit }        from '@fortawesome/free-brands-svg-icons/faGit'
 import { faDocker }     from '@fortawesome/free-brands-svg-icons/faDocker'
 import './index.scss'
 
+const HEADLINE = 'Building ideas into'
+
 const BOOT_LINES = [
   '> initializing dhyani.soni...',
   '> found: cs student · ai/ml fellow · researcher',
@@ -69,7 +71,12 @@ const Hero = () => {
           </p>
           <p className="hero-label">{'> load_full_profile()'}</p>
           <h1>
-            Building ideas into<br />
+            {HEADLINE.split('').map((char, i) =>
+              char === ' '
+                ? <span key={i} className="hero-letter-space">{' '}</span>
+                : <span key={i} className="hero-letter">{char}</span>
+            )}
+            <br />
             <span className="headline-accent">interactive systems.</span>
           </h1>
 
