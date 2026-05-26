@@ -16,7 +16,7 @@ const CURRENT = [
   { id: 'react',   label: 'React.js',          color: '#61dafb', proof: 'Built ADPVerse real-time dashboard, AgentWeave UI, NoteShare frontend, and this portfolio.' },
   { id: 'pytorch', label: 'PyTorch',            color: '#ee4c2c', proof: 'CNN skincare classifier with Grad-CAM explainability; live webcam inference via FastAPI.' },
   { id: 'ml',      label: 'Machine Learning',   color: '#f4a0b5', proof: 'AI/ML Fellow at Cornell Tech (4,000+ applicants); CNALab research improved accuracy +35%.' },
-  { id: 'docker',  label: 'Docker',             color: '#1d63ed', proof: 'Containerized AI microservices for consistent, reproducible deployment environments.' },
+  { id: 'docker',  label: 'Docker',             color: '#1d63ed', proof: 'Containerized Project Erica, an AI tutor for personalized learning experiences.' },
   { id: 'spring',  label: 'Spring Boot',        color: '#6db33f', proof: 'REST API for NoteShare: JWT auth, role-based access control, AWS S3 integration.' },
   { id: 'cv',      label: 'Computer Vision',    color: '#ff8c5a', proof: 'MediaPipe pose estimation at CNALab; YOLO body-type detection in AgentWeave.' },
   { id: 'nlp',     label: 'NLP / BERT',         color: '#c4b5fd', proof: 'RAISE-25: BERT + t-SNE pipeline surfacing public concerns from large text datasets.' },
@@ -28,7 +28,7 @@ const GOALS = [
   { id: 'cloud',     label: 'Cloud (AWS/GCP)',    color: '#ff9900', proof: 'Used AWS S3 for NoteShare. Goal: architect cloud-native ML infrastructure at scale.' },
   { id: 'llm',       label: 'LLMs + Fine-tuning', color: '#74b9ff', proof: 'Built on LLM APIs. Goal: custom fine-tuning, RLHF pipelines, and evaluation frameworks.' },
   { id: 'mlops',     label: 'MLOps',              color: '#a29bfe', proof: 'Goal: production ML with CI/CD, model monitoring, and automated versioning.' },
-  { id: 'sysdesign', label: 'System Design',      color: '#fd79a8', proof: 'Goal: design distributed systems — load balancers, caching, microservices end-to-end.' },
+  { id: 'sysdesign', label: 'System Design',      color: '#fd79a8', proof: 'Goal: design distributed systems - load balancers, caching, microservices end-to-end.' },
   { id: 'k8s',       label: 'Kubernetes',         color: '#326ce5', proof: 'Goal: orchestrate containerized ML workloads and auto-scale inference in production.' },
 ]
 
