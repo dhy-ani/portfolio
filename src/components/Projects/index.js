@@ -1,120 +1,190 @@
-import React from 'react';
-import './index.scss'; 
-import SkillsCarousel from '../Skills';
-import Loader from 'react-loaders';
-import 'loaders.css/loaders.min.css'; 
+import { useState, useEffect, useRef } from 'react'
+import GraphCanvas from '../GraphCanvas'
+import { NODE_TYPES } from '../../data/resumeGraph'
+import './index.scss'
 
-const projectSections = [
+const PROJECTS = [
   {
-    category: 'AI/ML Projects',
-    projects: [
+    category: 'AI / ML',
+    items: [
       {
-        title: 'AgentWeave: AI Fashion Trend Recommender',
-        description:
-          'An intelligent fashion system that recommends outfits using Pinterest scraping, CLIP/BLIP embeddings, FAISS clustering, and user prompts. Includes trend timeline, stock predictor, and YOLO-based body type matching.',
-        tech: ['CLIP', 'FAISS', 'YOLO', 'Firebase', 'React'],
-        link: 'https://github.com/dhy-ani/agentweave'
+        title: 'ADPVerse',
+        badge: '🏆 Best AI Analytics — HackHers',
+        desc: 'Real-time multimodal sentiment analysis pipeline for sales pitch evaluation with live scoring and feedback.',
+        tech: ['Python', 'SQLite', 'ElevenLabs', 'React'],
+        link: '#',
+        highlight: true,
+      },
+      {
+        title: 'AgentWeave',
+        desc: 'AI fashion recommender using Pinterest scraping, CLIP/BLIP embeddings, FAISS clustering, and YOLO body-type matching.',
+        tech: ['CLIP', 'FAISS', 'YOLOv5', 'Firebase', 'React'],
+        link: 'https://github.com/dhy-ani/agentweave',
       },
       {
         title: 'Skincare AI Recommender',
-        description:
-          'CNN-based skincare classifier and personalized product recommender powered by PyTorch and FastAPI. Uses Grad-CAM for explainability and allows webcam or image input to suggest Prana Beauty products.',
+        desc: 'CNN-based skincare classifier with Grad-CAM explainability, FastAPI backend, and webcam input for live suggestions.',
         tech: ['PyTorch', 'FastAPI', 'Grad-CAM', 'Firebase'],
-        link: 'https://github.com/dhy-ani/prana'
+        link: 'https://github.com/dhy-ani/prana',
       },
       {
-        title: 'Skin Lesion Detection',
-        description:
-          'A medical AI tool built with TensorFlow and OpenCV to classify dermatological conditions from image input. Deployed with Streamlit for quick diagnostic testing.',
-        tech: ['TensorFlow', 'OpenCV', 'Streamlit'],
-        link: 'https://github.com/dhy-ani/lesion-cnn-classification-model'
-      }
-    ]
+        title: 'LinkedIn Redesign',
+        desc: 'End-to-end UX redesign — user research with 5+ interviews, information architecture overhaul, wireframes, and an interactive React prototype with a cleaner visual design system.',
+        tech: ['Figma', 'React', 'CSS/SCSS', 'UX Research'],
+        link: 'https://github.com/dhy-ani',
+      },
+    ],
   },
   {
-    category: 'Full-Stack & Backend Projects',
-    projects: [
+    category: 'Full-Stack',
+    items: [
       {
         title: 'NoteShare Platform',
-        description:
-          'A full-stack note-sharing web app for academic communities. Built with Spring Boot and React, it features file upload, JWT-authenticated access, and secure PostgreSQL + AWS S3 integration.',
+        desc: 'Full-stack academic note-sharing app with JWT auth, Spring Boot API, and AWS S3 file storage.',
         tech: ['Spring Boot', 'PostgreSQL', 'AWS S3', 'JWT', 'React'],
-        link: 'https://github.com/dhy-ani/note-sharing-platform'
+        link: 'https://github.com/dhy-ani/note-sharing-platform',
       },
       {
-        title: 'Tea and Coffee Accessories',
-        description:
-          'An e-commerce platform developed using PHP and MySQL. Supports CRUD operations for products, AJAX-based live inventory display, and input sanitization against SQL injection.',
-        tech: ['MySQL', 'PHP', 'AJAX', 'JavaScript', 'HTML/CSS'],
-        link: 'https://github.com/dhy-ani/ds2338-IT202-Project'
-      }
-    ]
+        title: 'Tea & Coffee Accessories',
+        desc: 'E-commerce store with CRUD operations, AJAX live inventory updates, and SQL injection protection.',
+        tech: ['MySQL', 'PHP', 'AJAX', 'JavaScript'],
+        link: 'https://github.com/dhy-ani/ds2338-IT202-Project',
+      },
+    ],
   },
-  {
-    category: 'Data Visualization & Research Tools',
-    projects: [
-      {
-        title: 'Geopolitical Risk Mapper',
-        description:
-          'A Streamlit-based dashboard that visualizes real-time regional conflict risk by scraping global news and calculating scores. Built using Plotly for interactive maps.',
-        tech: ['Python', 'Plotly', 'Pandas', 'Streamlit'],
-        link: 'https://github.com/dhy-ani/newsmapping'
-      },
-      {
-        title: 'RAISE-25 AI & Data Science Competition',
-        description:
-          'Built NLP pipelines using BERT, sentiment analysis, and t-SNE to identify public concerns in large datasets and present insights using Tableau.',
-        tech: ['Python', 'BERT', 'NLP', 't-SNE', 'Tableau'],
-        link: '#'
-      },
-      {
-        title: 'Global Housing Market Analysis',
-        description:
-          'Collaborative data science project analyzing international housing trends using regression and clustering. Visualized insights using Seaborn and Matplotlib, and published full code on GitHub.',
-        tech: ['Python', 'Pandas', 'Seaborn', 'Scikit-learn', 'Matplotlib'],
-        link: 'https://github.com/nandika-k/Data-Science-Project-2'
-      }
-    ]
-  }
-];
+]
 
-const Badge = ({ children }) => <span className="badge">{children}</span>;
-const Card = ({ children }) => <div className="card">{children}</div>;
-const CardContent = ({ children }) => <div className="card-content">{children}</div>;
+// ── Card with 3-D flip ───────────────────────────────────────────────
+const AssemblyCard = ({ title, badge, desc, tech, link, highlight = false, delay = 0 }) => {
+  const ref = useRef(null)
+  const [stage, setStage]   = useState(0)
+  const [flipped, setFlipped] = useState(false)
 
-const Projects = () => {
+  // 4-stage scroll-triggered assembly animation
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setStage(1), delay)
+          setTimeout(() => setStage(2), delay + 280)
+          setTimeout(() => setStage(3), delay + 520)
+          setTimeout(() => setStage(4), delay + 760)
+          obs.unobserve(el)
+        }
+      },
+      { threshold: 0.12 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [delay])
+
   return (
-    <>
-      <div className="container project-page">
-        <h2 className="section-title">Skills</h2>
-        <div className="skills-container">
-          <SkillsCarousel />
+    <div
+      ref={ref}
+      className={`assembly-card stage-${stage} ${highlight ? 'highlight' : ''}`}
+      onClick={() => setFlipped(f => !f)}
+      title={flipped ? 'Click to flip back' : 'Click to explore knowledge graph'}
+    >
+      <div className={`card-inner ${flipped ? 'flipped' : ''}`}>
+
+        {/* ── Front face ── */}
+        <div className="card-front">
+          <div className="card-front-bar" />
+          {badge && <div className="card-badge">{badge}</div>}
+          <div className="card-title-row">
+            <h3 className="card-title">{title}</h3>
+          </div>
+          <p className="card-desc">{desc}</p>
+          <div className="card-tech">
+            {tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+          </div>
+          <div className="card-footer">
+            <a
+              href={link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="card-link"
+              onClick={e => e.stopPropagation()}
+            >
+              {'>'} view_project
+            </a>
+            <span className="card-flip-hint">flip for graph ↩</span>
+          </div>
         </div>
 
-        <h1 className="section-title">Projects</h1>
-        {projectSections.map(({ category, projects }) => (
-          <div key={category}>
-            <h2 className="project-category">{category}</h2>
+        {/* ── Back face — interactive knowledge graph ── */}
+        <div className="card-back">
+          <div className="card-back-header">
+            <span className="card-back-title">{'> '}{title}</span>
+            <span className="card-back-hint">drag nodes · click to flip</span>
+          </div>
+
+          {/* Only mount GraphCanvas when flipped (saves CPU for all other cards) */}
+          <div className="card-back-canvas">
+            {flipped && <GraphCanvas graphKey={title} />}
+          </div>
+
+          <div className="card-back-legend">
+            {Object.entries(NODE_TYPES).map(([type, { color }]) => (
+              <span key={type} className="legend-item">
+                <span className="legend-dot" style={{ background: color }} />
+                {type}
+              </span>
+            ))}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  )
+}
+
+// ── Section ──────────────────────────────────────────────────────────
+const Projects = () => {
+  const titleRef = useRef(null)
+
+  useEffect(() => {
+    const el = titleRef.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { el.classList.add('scroll-revealed'); obs.unobserve(el) }
+      },
+      { threshold: 0.2 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+
+  return (
+    <section id="projects" className="projects-section section">
+      <div className="section-inner">
+        <div className="terminal-label">&gt; assemble_projects()</div>
+
+        <div ref={titleRef} className="scroll-reveal">
+          <h2 className="section-title">Projects Assembled</h2>
+          <p className="section-sub-meta">
+            projects rendered: {PROJECTS.reduce((a, c) => a + c.items.length, 0)} · click any card to explore its knowledge graph
+          </p>
+        </div>
+
+        {PROJECTS.map(({ category, items }) => (
+          <div key={category} className="project-group">
+            <div className="group-label">
+              <span className="group-slash">{'// '}</span>{category}
+            </div>
             <div className="project-grid">
-              {projects.map(({ title, description, tech, link }) => (
-                <Card key={title}>
-                  <CardContent>
-                    <h3>{title}</h3>
-                    <p>{description}</p>
-                    <div className="badge-container">
-                      {tech.map(tag => <Badge key={tag}>{tag}</Badge>)}
-                    </div>
-                    <a href={link} target="_blank" rel="noopener noreferrer">Visit →</a>
-                  </CardContent>
-                </Card>
+              {items.map((p, i) => (
+                <AssemblyCard key={p.title} {...p} delay={i * 100} />
               ))}
             </div>
           </div>
         ))}
       </div>
-      <Loader type="ball-scale-multiple" active />
-    </>
-  );
-};
+    </section>
+  )
+}
 
-export default Projects;
+export default Projects

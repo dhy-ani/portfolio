@@ -1,71 +1,86 @@
-import React from 'react';
-import './index.scss';
-import { faGithub } from '@fortawesome/free-brands-svg-icons/faGithub'
+import { useRef, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGithub }   from '@fortawesome/free-brands-svg-icons/faGithub'
 import { faLinkedin } from '@fortawesome/free-brands-svg-icons/faLinkedin'
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Loader from 'react-loaders';
-import 'loaders.css/loaders.min.css'; 
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import './index.scss'
 
-const AboutAndContact = () => (
-  <>
-  <div className="about-page-card">
+const LINKS = [
+  { icon: faEnvelope,  label: 'email_me',   href: 'mailto:dhyanisoni05@gmail.com', color: '#28f0f0' },
+  { icon: faGithub,    label: 'github',      href: 'https://github.com/dhy-ani',    color: '#ffffff' },
+  { icon: faLinkedin,  label: 'linkedin',    href: 'https://www.linkedin.com/in/dhyani-soni', color: '#0a66c2' },
+]
 
-    <div className="about-right">
-      <h1>Hey, I’m Dhyani</h1>
-      <p>
-       I’m someone who finds meaning at the intersection of people and technology. I don’t just build projects, I craft tools that solve real problems and leave a positive mark. 
-
-I value clarity, creativity, and compassion; not just in code, but in communication, teamwork, and how I show up in the world. I love exploring where data meets design, and I’m especially drawn to problems that blend structure with storytelling, making science more accessible.
-
-Outside of my screen, I’m a big fan of tennis, long walks with music, and thinking about how the smallest ideas like a line of code or a research question can scale to something unexpectedly impactful.
-
-I’m here to keep learning, keep building, and hopefully, keep making something that matters.
-      </p>
-
-      <hr />
-
-      <h2>Education</h2>
-      <p>BSc in Computer Science — New Jersey Institute of Technology</p>
-
-      <hr />
-      <div className="activities-section">
-        <h2>Activities & Leadership</h2>
-        <p>
-          I actively lead and contribute to student organizations focused on equity, education, and computer science outreach.
-        </p>
-        <ul className="activities-list">
-          <li><strong>Outreach Chair, Girl Up NJIT:</strong> Lead university-wide campaigns and organize events to promote gender equity and empowerment through tech-driven initiatives.</li>
-          <li><strong>Curriculum Manager, Lyra STEM:</strong> Design and manage engaging STEM lesson plans for high and elementary school students that make complex concepts accessible and fun.</li>
-          <li><strong>Treasurer, Kids Who Code:</strong> Oversee club finances, funding, and event planning to expand youth access to hands-on coding education.</li>
-        </ul>
-      </div>
-
-      <hr />
-
-
-    <h2 style={{ textAlign: 'center' }}>Contact & Links</h2>
-      <ul className="contact-links">
-        <li><a target='_blank' rel="noreferrer" href="mailto:dhyanisoni05@gmail.com">
-                <FontAwesomeIcon icon={faEnvelope} color="#4d4d4e" />
-                   &nbsp;Email Me
-            </a>
-        </li>
-        <li><a target='_blank' rel="noreferrer" href="https://github.com/dhy-ani">
-                <FontAwesomeIcon icon={faGithub} color="#4d4d4e" />
-                   &nbsp;GitHub
-            </a>
-        </li>
-        <li><a target='_blank' rel="noreferrer" href="https://www.linkedin.com/in/dhyani-soni">
-                <FontAwesomeIcon icon={faLinkedin} color="#4d4d4e" />
-                   &nbsp;LinkedIn
-            </a>
-        </li>
-      </ul>
+const RevealBlock = ({ children, delay = 0 }) => {
+  const ref = useRef(null)
+  useEffect(() => {
+    const el = ref.current
+    if (!el) return
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) { el.classList.add('scroll-revealed'); obs.unobserve(el) }
+      },
+      { threshold: 0.15 }
+    )
+    obs.observe(el)
+    return () => obs.disconnect()
+  }, [])
+  return (
+    <div ref={ref} className="scroll-reveal" style={{ transitionDelay: `${delay}ms` }}>
+      {children}
     </div>
-  </div>
-      <Loader type="ball-scale-multiple" active/>
-    </>
-);
+  )
+}
 
-export default AboutAndContact
+const Contact = () => (
+  <section id="contact" className="contact-section section">
+    <div className="section-inner contact-inner">
+
+      <RevealBlock delay={0}>
+        <div className="terminal-label">&gt; open_contact_channel()</div>
+        <h2 className="section-title">Open Contact Channel</h2>
+        <p className="contact-sub">
+          Have an opportunity, idea, or project in mind? Let's connect.
+        </p>
+      </RevealBlock>
+
+      <RevealBlock delay={200}>
+        <div className="contact-links">
+          {LINKS.map(({ icon, label, href, color }) => (
+            <a
+              key={label}
+              href={href}
+              className="contact-btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FontAwesomeIcon icon={icon} style={{ color }} />
+              <span>{`[ ${label} ]`}</span>
+            </a>
+          ))}
+          <a
+            href="/portfolio/resume.pdf"
+            className="contact-btn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="resume-icon">{'▶'}</span>
+            <span>{'[ run_resume ]'}</span>
+          </a>
+        </div>
+      </RevealBlock>
+
+      <RevealBlock delay={400}>
+        <div className="final-command">
+          <span className="final-prompt">&gt; </span>
+          <span className="final-text">ready_for_next_opportunity</span>
+          <span className="final-cursor">█</span>
+        </div>
+        <p className="final-sub">system build complete</p>
+      </RevealBlock>
+
+    </div>
+  </section>
+)
+
+export default Contact
