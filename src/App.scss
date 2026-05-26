@@ -232,7 +232,10 @@ body.light-mode {
   .stat-label { color: #2d2244 !important; }
   .stat-desc  { color: #7a7298 !important; }
 
-  // Skills
+  // Skills (SkillNetwork)
+  --skill-edge-color: rgba(80, 60, 120, 0.5);
+  --skill-label-active: #2d2244;
+  --skill-label-rest: #5a4e7a;
   .skill-proof-card { background: rgba(255,252,248,0.96) !important; }
   .proof-skill-name { /* color set inline, keep */ }
   .proof-text { color: #4a4068 !important; }

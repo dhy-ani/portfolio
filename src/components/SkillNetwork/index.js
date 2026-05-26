@@ -191,12 +191,14 @@ const SkillNetwork = () => {
               return (
                 <line key={i}
                   x1={a.x} y1={a.y} x2={b.x} y2={b.y}
-                  stroke={isHov ? fromColor : 'rgba(196,181,253,0.22)'}
-                  strokeWidth={isHov ? 1.6 : 0.75}
                   strokeDasharray={e.dash ? '5,3.5' : 'none'}
-                  opacity={isHov ? 0.9 : (e.dash ? 0.5 : 0.7)}
-                  style={{ transition: 'stroke 0.2s, stroke-width 0.2s, opacity 0.2s' }}
                   filter={isHov ? 'url(#sk-glow)' : undefined}
+                  style={{
+                    stroke: isHov ? fromColor : 'var(--skill-edge-color, rgba(196,181,253,0.22))',
+                    strokeWidth: isHov ? 1.6 : 0.75,
+                    opacity: isHov ? 0.9 : (e.dash ? 0.5 : 0.7),
+                    transition: 'stroke 0.2s, stroke-width 0.2s, opacity 0.2s',
+                  }}
                 />
               )
             })}
@@ -252,11 +254,17 @@ const SkillNetwork = () => {
                   <text
                     x={labelX} y={node.y + 4}
                     textAnchor={labelAnchor}
-                    fill={isHov || isConn ? '#ffffff' : '#7e769c'}
                     fontSize={isHov ? '10.5' : '9.5'}
                     fontFamily="Courier New"
                     fontWeight={isHov ? '700' : '500'}
-                    style={{ transition: 'fill 0.2s', pointerEvents: 'none', userSelect: 'none' }}
+                    style={{
+                      fill: isHov || isConn
+                        ? 'var(--skill-label-active, #ffffff)'
+                        : 'var(--skill-label-rest, #7e769c)',
+                      transition: 'fill 0.2s',
+                      pointerEvents: 'none',
+                      userSelect: 'none',
+                    }}
                   >
                     {node.label}
                   </text>
