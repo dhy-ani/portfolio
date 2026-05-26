@@ -12,7 +12,7 @@ const PROJECTS = [
         badge: '🏆 Best AI Analytics — HackHers',
         desc: 'Real-time multimodal sentiment analysis pipeline for sales pitch evaluation with live scoring and feedback.',
         tech: ['Python', 'SQLite', 'ElevenLabs', 'React'],
-        link: '#',
+        link: 'https://github.com/dhy-ani/SenseLense',
         highlight: true,
       },
       {
@@ -31,7 +31,7 @@ const PROJECTS = [
         title: 'LinkedIn Redesign',
         desc: 'End-to-end UX redesign — user research with 5+ interviews, information architecture overhaul, wireframes, and an interactive React prototype with a cleaner visual design system.',
         tech: ['Figma', 'React', 'CSS/SCSS', 'UX Research'],
-        link: 'https://github.com/dhy-ani',
+        link: 'https://linkedin-redesign-z364.onrender.com/',
       },
     ],
   },
