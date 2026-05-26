@@ -1,59 +1,276 @@
-$primary-color: #28f0f0;
+// ── Dark Pastel Glow Tokens ──────────────────────────────
+$bg:              #0d0a1a;
+$bg-card:         rgba(22, 18, 42, 0.85);
+$bg-card-hover:   rgba(30, 24, 56, 0.9);
+
+$pink:            #f4a0b5;
+$pink-glow:       rgba(244, 160, 181, 0.32);
+$pink-deep:       rgba(244, 160, 181, 0.12);
+
+$lavender:        #c4b5fd;
+$lavender-glow:   rgba(196, 181, 253, 0.32);
+$lavender-deep:   rgba(196, 181, 253, 0.1);
+
+$butter:          #fde68a;
+$butter-glow:     rgba(253, 230, 138, 0.28);
+
+$text:            #e8e4f0;
+$text-dim:        #8b82a8;
+$border:          rgba(196, 181, 253, 0.18);
+
+$font-mono:       'Courier New', Courier, monospace;
+$font-sans:       'HelveticaNeue', 'Helvetica Neue', Arial, sans-serif;
 
 @import 'animate.css';
-@import '~loaders.css/src/animations/ball-scale-multiple.scss';
-@font-face {
-  font-family: 'Helvetica Neue';
-  src: url('./assets/fonts/helvetica-neu.ttf') format('ttf');
-}
 
-@font-face {
-  font-family: 'La Belle Aurore';
-  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2');
-  
-}
-
+// ── Custom fonts ─────────────────────────────────────────
 @font-face {
   font-family: 'Coolvetica';
-  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2');
+  src: url('./assets/fonts/CoolveticaRg-Regular.woff2') format('woff2'),
+       url('./assets/fonts/CoolveticaRg-Regular.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-input, 
-textarea{
-  font-family: 'Helvetica Neue';
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('./assets/fonts/helvetica-neu.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
-.loader-active{
-  display: block;
-  position: absolute;
-  left: 0;
-  right:0;
-  margin: auto;
-  top:0;
-  bottom:0;
-  width: 50px;
-  height: 50px;
-  animation: fadeOut 1s ease-in-out;
-  animation-fill-mode: forwards;
+@font-face {
+  font-family: 'LaBelleAurore';
+  src: url('./assets/fonts/LaBelleAurore.woff2') format('woff2'),
+       url('./assets/fonts/LaBelleAurore.woff')  format('woff');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
+$font-display: 'HelveticaNeue', 'Helvetica Neue', Arial, sans-serif;
+
+// ── Root ─────────────────────────────────────────────────
+.app-root {
+  min-height: 100vh;
+  // Rich dark gradient — deep indigo with slight directional depth
+  background:
+    linear-gradient(160deg, #110d24 0%, #0e0c1e 35%, #0c0f22 68%, #0f0c1e 100%);
+  position: relative;
+
+  // Ambient personality glows — four quadrants, four worlds:
+  // top-left=art/creativity · top-right=tech/ML · bottom-right=warmth/food · bottom-left=nature
+  &::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 800px 560px at 5% 8%,   rgba(244,160,181,0.065) 0%, transparent 62%),
+      radial-gradient(ellipse 700px 500px at 94% 12%,  rgba(196,181,253,0.072) 0%, transparent 62%),
+      radial-gradient(ellipse 600px 460px at 88% 93%,  rgba(253,210,130,0.048) 0%, transparent 62%),
+      radial-gradient(ellipse 550px 420px at 8%  92%,  rgba(107,216,107,0.038) 0%, transparent 62%),
+      radial-gradient(ellipse 1000px 700px at 50% 50%, rgba(20,16,38,0.35)     0%, transparent 70%);
+    pointer-events: none;
+    z-index: 0;
+    animation: ambientShift 18s ease-in-out infinite alternate;
+  }
 }
-body, html{
-  overflow-y: auto;
+
+@keyframes ambientShift {
+  0%   { opacity: 1; }
+  50%  { opacity: 0.75; }
+  100% { opacity: 1; }
 }
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-  .contact-zone,
-  .about-zone {
-    flex: 1 1 100%;
+
+main { position: relative; z-index: 1; }
+
+// ── Section layout ────────────────────────────────────────
+.section { position: relative; z-index: 1; }
+
+.section-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+// Terminal label — butter yellow, glowing
+.terminal-label {
+  font-family: $font-mono;
+  font-size: 0.95rem;
+  color: $butter;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 12px $butter-glow;
+}
+
+// Section headings — white
+.section-title {
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 800;
+  color: #ffffff;
+  margin: 0 0 0.4rem 0;
+  font-family: 'Coolvetica', $font-sans;
+}
+
+// ── Scroll reveal ─────────────────────────────────────────
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+
+  &.scroll-revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// ── Grid dot overlay ───────────────────────────────────
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(rgba(196, 181, 253, 0.06) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  z-index: 0;
+  animation: gridPulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes gridPulse {
+  from { opacity: 0.7; }
+  to   { opacity: 1; }
+}
+
+// ── Scroll anchor offset ──────────────────────────────────
+#hero, #about, #skills, #projects, #experience, #contact {
+  scroll-margin-top: 72px;
+}
+
+// ══════════════════════════════════════════════════════════
+// ── Light mode — creamish pastel theme ───────────────────
+// ══════════════════════════════════════════════════════════
+body.light-mode {
+  background-color: #faf6ef !important;
+  color: #2d2244 !important;
+
+  // Background layers
+  &::before {
+    background-image: radial-gradient(rgba(90, 70, 130, 0.07) 1px, transparent 1px) !important;
   }
 
-  .contact-form .half {
-    width: 100%;
-    margin-right: 0;
+  .app-root {
+    background: linear-gradient(160deg, #fdf9f2 0%, #f5f0e6 45%, #faf7f0 100%) !important;
+  }
+  .app-root::after {
+    opacity: 0.15 !important;
+  }
+  .network-bg {
+    opacity: 0.12 !important;
+    filter: invert(1) hue-rotate(170deg) !important;
   }
 
-  .flat-button {
-    width: 100%;
-    float: none;
+  // Navbar
+  .navbar.scrolled {
+    background: rgba(252, 249, 244, 0.94) !important;
+    border-bottom-color: rgba(100, 80, 140, 0.14) !important;
   }
+  .brand-letter { color: #2d2244 !important; }
+  .brand-letter:hover { color: #c0507a !important; text-shadow: none !important; }
+  .brand-prompt { color: #9c7800 !important; text-shadow: none !important; }
+  .brand-cursor { color: #c0507a !important; text-shadow: none !important; }
+  .navbar-links a { color: #6b6390 !important; }
+  .navbar-links a.active, .navbar-links a:hover { color: #5040a0 !important; text-shadow: none !important; }
+  .navbar-links a .nav-prompt { color: #9c7800 !important; }
+  .theme-toggle {
+    color: #6b6390 !important;
+    border-color: rgba(100, 80, 140, 0.28) !important;
+    &:hover { color: #5040a0 !important; border-color: rgba(80, 64, 160, 0.5) !important; background: rgba(80, 64, 160, 0.06) !important; }
+  }
+
+  // BuildProgress
+  .build-progress {
+    background: rgba(252, 249, 244, 0.9) !important;
+    border-bottom-color: rgba(100, 80, 140, 0.1) !important;
+  }
+  .bp-label-top { color: #6052b0 !important; text-shadow: none !important; }
+  .bp-pct       { color: #c0507a !important; text-shadow: none !important; }
+  .bp-status    { color: #6052b0 !important; text-shadow: none !important; }
+  .bp-track     { background: rgba(100, 80, 140, 0.14) !important; }
+  .bp-wp-label  { color: #9088b0 !important; }
+  .bp-dot       { border-color: rgba(100, 80, 140, 0.3) !important; background: #faf6ef !important; }
+  .bp-dot .reached & { background: #c0507a !important; border-color: #c0507a !important; }
+
+  // Hero
+  .hero-section { background: transparent !important; }
+  .boot-line { color: #7060a8 !important; text-shadow: none !important; &:last-child { color: #c0507a !important; text-shadow: none !important; } }
+  .hero-intro-headline { color: #7060a8 !important; text-shadow: none !important; }
+  .hero-label { color: #9c7800 !important; text-shadow: none !important; }
+  h1 { color: #2d2244 !important; }
+  .hero-letter { color: #2d2244 !important; }
+  .hero-letter:hover { color: #c0507a !important; text-shadow: none !important; }
+  .headline-accent { color: #c0507a !important; text-shadow: none !important; }
+  .btn-terminal { border-color: #c0507a !important; color: #c0507a !important; &:hover { background: rgba(192,80,122,0.08) !important; color: #2d2244 !important; } }
+  .btn-terminal.secondary { border-color: #6052b0 !important; color: #6052b0 !important; &:hover { background: rgba(96,82,176,0.08) !important; color: #2d2244 !important; } }
+  .hero-status { color: #9088b0 !important; }
+  .status-dot { background: #c0507a !important; box-shadow: 0 0 8px rgba(192,80,122,0.4) !important; }
+  .scroll-hint { color: #9088b0 !important; }
+  .scroll-arrow { background: linear-gradient(to bottom, #c0507a, transparent) !important; }
+  .cube-label { color: #7060a8 !important; }
+  .cubespinner div { background: rgba(250,246,236,0.8) !important; border-color: rgba(100,80,140,0.3) !important; }
+  .orbit-label { color: #7060a8 !important; border-color: rgba(100,80,140,0.25) !important; background: rgba(100,80,140,0.05) !important; }
+
+  // Sections — shared
+  .terminal-label { color: #9c7800 !important; text-shadow: none !important; }
+  .section-title { color: #2d2244 !important; }
+  .section-sub, .section-sub-meta { color: #9088b0 !important; }
+
+  // About
+  .about-text p { color: #4a4068 !important; }
+  .about-text strong { color: #2d2244 !important; }
+  .stat-card { background: rgba(255,252,248,0.92) !important; border-color: rgba(100,80,140,0.2) !important; }
+  .stat-label { color: #2d2244 !important; }
+  .stat-desc  { color: #7a7298 !important; }
+
+  // Skills (SkillNetwork)
+  --skill-edge-color: rgba(80, 60, 120, 0.5);
+  --skill-label-active: #2d2244;
+  --skill-label-rest: #5a4e7a;
+  .skill-proof-card { background: rgba(255,252,248,0.96) !important; }
+  .proof-skill-name { /* color set inline, keep */ }
+  .proof-text { color: #4a4068 !important; }
+
+  // Projects
+  .group-label { color: #7a7298 !important; }
+  .group-slash { color: #c0507a !important; }
+  .card-front { background: rgba(255,252,248,0.96) !important; border-color: rgba(100,80,140,0.18) !important; }
+  .card-title  { color: #2d2244 !important; }
+  .card-desc   { color: #4a4068 !important; }
+  .tech-tag { color: #6052b0 !important; border-color: rgba(96,82,176,0.3) !important; background: rgba(96,82,176,0.07) !important; &:hover { background: rgba(96,82,176,0.14) !important; } }
+  .card-link { color: #c0507a !important; &:hover { color: #8b3060 !important; } }
+  .card-badge { color: #c0507a !important; background: rgba(192,80,122,0.08) !important; border-color: rgba(192,80,122,0.3) !important; }
+  .card-flip-hint { color: #9088b0 !important; &:hover { color: #6052b0 !important; } }
+  .card-back { background: rgba(248,244,238,0.99) !important; border-color: rgba(100,80,140,0.18) !important; }
+  .card-back-title { color: #6052b0 !important; }
+  .card-back-hint  { color: #9088b0 !important; }
+  .card-back-legend .legend-item { color: #9088b0 !important; }
+  .card-front-bar { background: linear-gradient(to right, #c0507a, #6052b0, #9c7800) !important; }
+
+  // Experience
+  .exp-badge   { background: rgba(100,80,140,0.08) !important; border-color: rgba(100,80,140,0.25) !important; }
+  .exp-title   { color: #2d2244 !important; }
+  .exp-company { color: #3a3060 !important; }
+  .exp-period  { color: #7a7298 !important; }
+  .exp-points li { color: #4a4068 !important; }
+  .exp-flip-hint { color: #9088b0 !important; }
+  .exp-body-back { background: rgba(248,244,238,0.99) !important; border-color: rgba(100,80,140,0.18) !important; }
+  .exp-back-hint { color: #9088b0 !important; }
+
+  // Contact
+  .contact-sub { color: #4a4068 !important; }
+  .contact-btn { background: rgba(255,252,248,0.9) !important; color: #6b6390 !important; border-color: rgba(100,80,140,0.22) !important; &:hover { border-color: #c0507a !important; color: #2d2244 !important; box-shadow: 0 0 18px rgba(192,80,122,0.15) !important; } }
+  .final-prompt { color: #9c7800 !important; text-shadow: none !important; }
+  .final-text   { color: #2d2244 !important; }
+  .final-cursor { color: #c0507a !important; text-shadow: none !important; }
+  .final-sub    { color: #7060a8 !important; }
 }
