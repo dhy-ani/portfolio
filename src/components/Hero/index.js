@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faReact }      from '@fortawesome/free-brands-svg-icons/faReact'
 import { faPython }     from '@fortawesome/free-brands-svg-icons/faPython'
@@ -20,6 +21,7 @@ const BOOT_LINES = [
 
 
 const Hero = () => {
+  const navigate = useNavigate()
   const [lines, setLines]       = useState([])
   const [bootDone, setBootDone] = useState(false)
   const [visible, setVisible]   = useState(false)
@@ -92,6 +94,9 @@ const Hero = () => {
             </a>
             <button className="btn-terminal secondary" onClick={() => scrollTo('contact')}>
               {'[ send_message ]'}
+            </button>
+            <button className="btn-terminal blog" onClick={() => navigate('/blogs')}>
+              {'[ checkout_blogs ]'}
             </button>
           </div>
 

@@ -163,6 +163,16 @@ h1 {
       color: #ffffff;
     }
   }
+
+  &.blog {
+    border-color: #fde68a;
+    color: #fde68a;
+    &:hover {
+      background: rgba(253,230,138,0.08);
+      box-shadow: 0 0 20px rgba(253,230,138,0.28);
+      color: #ffffff;
+    }
+  }
 }
 
 .resume-icon {
