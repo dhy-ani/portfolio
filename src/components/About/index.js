@@ -24,16 +24,21 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            I'm a Computer Science student with an AI Minor at <strong>the New Jersey Institute of Technology</strong>.
+            CS + AI student at NJIT who ended up at the intersection of AI and design
+            entirely by following what I found interesting — and just sort of stayed there.
           </p>
           <p>
-            Selected as an <strong>AI & ML Fellow at Cornell Tech</strong> from 4,000+ applicants,
-            and conducted AI rehabilitation research at CNALab, where my work improved
-            keypoint detection accuracy by 35%.
+            I got into coding because I liked making things look good. I stayed because I
+            realized you could make things <em>think</em> too. Since then: UX research,
+            AI rehabilitation tools that placed <strong>1st at the NJIT Research Forum</strong>,
+            and an <strong>AI & ML Fellowship at Cornell Tech</strong> I applied to three days before
+            the deadline on a whim (4,000+ applicants, somehow still here).
           </p>
           <p>
-            I like experimenting with layouts, animations, and logic: turning curiosity into
-            things that actually work.
+            Most of my projects exist because something annoyed me and my first instinct
+            was to overengineer a solution. Outside the terminal: museums, strong opinions
+            about typography, and an ongoing search for the perfect warm-black background.
+            This site is my current best attempt.
           </p>
         </div>
 

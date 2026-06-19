@@ -11,7 +11,7 @@ const PROJECTS = [
       {
         title: 'SenseLense',
         badge: '🏆 Best AI Analytics — HackHers',
-        desc: 'Real-time multimodal sentiment analysis pipeline for sales pitch evaluation with live scoring and feedback.',
+        desc: 'Practicing a sales pitch is hard when you can\'t see how you come across. SenseLense watches you pitch live — reading your voice, your words, and your facial expressions together — and scores how confident and convincing you actually sound. Built in 24 hours at HackHers.',
         tech: ['Python', 'SQLite', 'React'],
         links: [
           { label: '> demo', url: 'https://devpost.com/software/saleslense' },
@@ -21,7 +21,7 @@ const PROJECTS = [
       },
       {
         title: 'AgentWeave',
-        desc: 'AI fashion recommender using CLIP/BLIP embeddings, FAISS clustering, and YOLO body-type matching.',
+        desc: 'Most fashion apps recommend what\'s trending, not what works for you. AgentWeave looks at your body type first, then finds outfits that are an actual match — not just popular. Built because the gap between "algorithmically recommended" and "genuinely flattering" is enormous.',
         tech: ['CLIP', 'FAISS', 'YOLOv5', 'Firebase', 'React'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/agentweave' },
@@ -29,7 +29,7 @@ const PROJECTS = [
       },
       {
         title: 'Skincare AI Recommender',
-        desc: 'CNN-based skincare classifier with Grad-CAM explainability, FastAPI backend, and webcam input for live suggestions.',
+        desc: 'Skincare is a guessing game that costs money every time you guess wrong. Point your webcam at your face and it classifies your skin type, recommends products that match, and shows exactly which part of your face it\'s reading — so you know why it thinks what it thinks.',
         tech: ['PyTorch', 'FastAPI', 'Firebase'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/prana' },
@@ -37,7 +37,7 @@ const PROJECTS = [
       },
       {
         title: 'Nexus',
-        desc: 'LinkedIn-style full-stack app with Flask REST API, AI-powered outreach guidance, recruiter mode, conference discovery, and WCAG-compliant keyboard navigation. 96% backend route coverage.',
+        desc: 'LinkedIn works great if you already have connections. Nexus is for everyone else — a professional networking app built for students breaking in, with AI that helps write outreach that doesn\'t sound like a template, a recruiter mode, and conference discovery so you find the right people, not just the most visible ones.',
         tech: ['React', 'Flask', 'SQLite', 'JavaScript'],
         links: [
           { label: '> demo', url: 'https://drive.google.com/file/d/1AkS57aSHBQzu35NG06gR52sXLA4e0DH7/view?usp=sharing' },
@@ -52,7 +52,7 @@ const PROJECTS = [
     items: [
       {
         title: 'NoteShare Platform',
-        desc: 'Full-stack academic note-sharing app with JWT auth, Spring Boot API, and AWS S3 file storage.',
+        desc: 'Students hoard notes on their hard drives while their classmates struggle through the same material. NoteShare is a structured place to upload, browse, and share course notes by subject. Built because Discord channels full of unnamed PDFs are not a system.',
         tech: ['Spring Boot', 'PostgreSQL', 'AWS S3', 'React'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/note-sharing-platform' },
@@ -60,7 +60,7 @@ const PROJECTS = [
       },
       {
         title: 'Tea & Coffee Accessories',
-        desc: 'E-commerce store with CRUD operations, AJAX live inventory updates, and SQL injection protection.',
+        desc: 'A real e-commerce store — not a tutorial project. Browse products, manage a cart, and check out with inventory that updates live. Built to actually understand what it takes to ship a working storefront from scratch, not just follow along with one.',
         tech: ['MySQL', 'PHP', 'AJAX', 'JavaScript'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/ds2338-IT202-Project' },
