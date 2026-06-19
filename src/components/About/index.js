@@ -24,30 +24,24 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            CS and AI student at NJIT, international student, and someone who's done
-            UX research, AI rehabilitation work that won first place at the NJIT Honors
-            Research Forum, and landed an <strong>AI/ML Fellowship at Cornell Tech</strong>.
-            Currently incoming at <strong>TCS</strong> this summer building agentic AI systems.
-            Most of my projects started as something that annoyed me.
+            CS and AI student at NJIT, international student. Done UX research, built AI
+            rehabilitation tools that <a href="https://news.njit.edu/150-honors-scholars-showcase-findings-interdisciplinary-research-forum" target="_blank" rel="noopener noreferrer" className="about-inline-link">placed first at the NJIT Honors Research Forum</a>,
+            and landed an <strong>AI/ML Fellowship at Cornell Tech</strong>. Heading to <strong>TCS</strong> this summer to build agentic AI systems.
           </p>
           <p>
-            Working on a few things right now: a <strong>digital twin</strong> that'll live
-            right here on this page — once it's up, you'll be able to ask it anything about
-            me and it'll actually know. Also building <strong>StockSense</strong>, an AI tool
-            that pulls from market data, tracks news sentiment and social signals, and surfaces
-            pattern-based insights for retail investors who are tired of guessing. It's meant
-            to feel less like a dashboard and more like a thinking partner.
+            Right now I'm building a <strong>digital twin</strong> that'll live on this page.
+            Once it's up, ask it anything about me and it'll actually know.
+            Also building <strong>StockSense</strong>, an AI tool that reads market data,
+            news sentiment, and social signals. Meant to feel like a thinking partner, not a dashboard.
           </p>
           <p>
-            Also learning French. Not consistently, but genuinely working on it. Outside the
-            terminal: museums, strong opinions about typography, and the endless search for
-            the perfect warm-black background. This site is the current best attempt.
+            Also learning French. Not consistently, but genuinely.
           </p>
         </div>
 
         <div className="stat-cards">
-          {STATS.map(({ icon, label, desc }, i) => (
-            <StatCard key={label} icon={icon} label={label} desc={desc} delay={i * 150} />
+          {STATS.map(({ icon, label, desc, link }, i) => (
+            <StatCard key={label} icon={icon} label={label} desc={desc} link={link} delay={i * 150} />
           ))}
         </div>
 
