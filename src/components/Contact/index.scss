@@ -40,7 +40,7 @@
   font-weight: 600;
   transition: border-color 0.25s ease, box-shadow 0.25s ease, transform 0.2s ease, color 0.2s ease;
 
-  .resume-icon { color: #fde68a; font-size: 0.75rem; text-shadow: 0 0 8px rgba(253,230,138,0.5); }
+  .resume-icon { color: #fde68a; font-size: 0.875rem; text-shadow: 0 0 8px rgba(253,230,138,0.5); }
 
   &:hover {
     border-color: #f4a0b5;
@@ -71,7 +71,7 @@
 
 .final-sub {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   color: #c4b5fd;
   opacity: 0.45;
   letter-spacing: 0.1em;

@@ -113,7 +113,7 @@
 }
 
 .exp-sub {
-  font-size: 0.85rem;
+  font-size: 0.875rem;
   color: #8b82a8;
   margin: 0;
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
@@ -125,7 +125,7 @@
 
 .exp-period {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.72rem;
+  font-size: 0.875rem;
   color: #6b6488;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -133,7 +133,7 @@
 
 .exp-badge {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   color: var(--accent, #c4b5fd);
   border: 1px solid var(--accent, #c4b5fd);
   border-radius: 20px;
@@ -181,7 +181,7 @@
 
 .exp-skill-tag {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   color: var(--s-color, #c4b5fd);
   border: 1px solid var(--s-color, #c4b5fd);
   border-radius: 20px;
@@ -193,7 +193,7 @@
   gap: 4px;
   transition: opacity 0.15s ease;
 
-  .skill-icon { font-size: 0.78rem; flex-shrink: 0; }
+  .skill-icon { font-size: 0.875rem; flex-shrink: 0; }
   &:hover { opacity: 0.9; }
 }
 
@@ -202,7 +202,7 @@
   display: block;
   margin-top: 0.7rem;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.65rem;
+  font-size: 0.875rem;
   color: transparent;
   letter-spacing: 0.04em;
   transition: color 0.2s;
@@ -231,7 +231,7 @@
 
 .exp-back-title {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.7rem;
+  font-size: 0.875rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   white-space: nowrap;
@@ -242,7 +242,7 @@
 
 .exp-back-hint {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   color: #4a4466;
   letter-spacing: 0.04em;
   white-space: nowrap;
@@ -269,7 +269,7 @@
   align-items: center;
   gap: 4px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.68rem;
+  font-size: 0.875rem;
   color: #4a4466;
   letter-spacing: 0.04em;
 }
