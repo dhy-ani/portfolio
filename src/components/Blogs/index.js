@@ -45,6 +45,17 @@ const Blogs = () => {
         </p>
       </div>
 
+      {/* ── Coming Soon ── */}
+      <div className="blog-coming-soon">
+        <div className="cs-glow" aria-hidden="true" />
+        <p className="cs-label">{'> status: drafting'}</p>
+        <h2 className="cs-heading">Coming Soon</h2>
+        <p className="cs-sub">First posts dropping shortly. Check back soon.</p>
+        <div className="cs-dots">
+          <span /><span /><span />
+        </div>
+      </div>
+
       <div className="blog-body">
 
         {/* ── Collections ── */}

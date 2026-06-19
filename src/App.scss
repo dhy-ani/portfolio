@@ -55,33 +55,30 @@ $font-display: 'HelveticaNeue', 'Helvetica Neue', Arial, sans-serif;
 // ── Root ─────────────────────────────────────────────────
 .app-root {
   min-height: 100vh;
-  // Rich dark gradient — deep indigo with slight directional depth
+  // Deep navy-violet — clean, premium dark base
   background:
-    linear-gradient(160deg, #110d24 0%, #0e0c1e 35%, #0c0f22 68%, #0f0c1e 100%);
+    linear-gradient(145deg, #07061a 0%, #090820 38%, #07091d 65%, #06061a 100%);
   position: relative;
 
-  // Ambient personality glows — four quadrants, four worlds:
-  // top-left=art/creativity · top-right=tech/ML · bottom-right=warmth/food · bottom-left=nature
+  // Two-point ambient glow: lavender top-left, pink bottom-right
   &::after {
     content: '';
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 800px 560px at 5% 8%,   rgba(244,160,181,0.065) 0%, transparent 62%),
-      radial-gradient(ellipse 700px 500px at 94% 12%,  rgba(196,181,253,0.072) 0%, transparent 62%),
-      radial-gradient(ellipse 600px 460px at 88% 93%,  rgba(253,210,130,0.048) 0%, transparent 62%),
-      radial-gradient(ellipse 550px 420px at 8%  92%,  rgba(107,216,107,0.038) 0%, transparent 62%),
-      radial-gradient(ellipse 1000px 700px at 50% 50%, rgba(20,16,38,0.35)     0%, transparent 70%);
+      radial-gradient(ellipse 900px 650px at 8%  6%,  rgba(164,130,255,0.06)  0%, transparent 60%),
+      radial-gradient(ellipse 800px 580px at 92% 96%, rgba(244,160,181,0.055) 0%, transparent 60%),
+      radial-gradient(ellipse 1100px 800px at 50% 50%, rgba(6, 5, 18, 0.3)    0%, transparent 68%);
     pointer-events: none;
     z-index: 0;
-    animation: ambientShift 18s ease-in-out infinite alternate;
+    animation: ambientShift 22s ease-in-out infinite alternate;
   }
 }
 
 @keyframes ambientShift {
-  0%   { opacity: 1; }
-  50%  { opacity: 0.75; }
-  100% { opacity: 1; }
+  0%   { opacity: 0.85; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.85; }
 }
 
 main { position: relative; z-index: 1; }
@@ -130,17 +127,13 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(rgba(196, 181, 253, 0.06) 1px, transparent 1px);
-  background-size: 28px 28px;
+  background-image: radial-gradient(rgba(164, 148, 230, 0.04) 1px, transparent 1px);
+  background-size: 36px 36px;
   pointer-events: none;
   z-index: 0;
-  animation: gridPulse 12s ease-in-out infinite alternate;
+  opacity: 0.85;
 }
 
-@keyframes gridPulse {
-  from { opacity: 0.7; }
-  to   { opacity: 1; }
-}
 
 // ── Scroll anchor offset ──────────────────────────────────
 #hero, #about, #skills, #projects, #experience, #contact {
@@ -156,14 +149,16 @@ body.light-mode {
 
   // Background layers
   &::before {
-    background-image: radial-gradient(rgba(90, 70, 130, 0.07) 1px, transparent 1px) !important;
+    background-image: radial-gradient(rgba(90, 70, 130, 0.05) 1px, transparent 1px) !important;
+    background-size: 36px 36px !important;
+    opacity: 0.7 !important;
   }
 
   .app-root {
-    background: linear-gradient(160deg, #fdf9f2 0%, #f5f0e6 45%, #faf7f0 100%) !important;
+    background: linear-gradient(145deg, #fdfcfb 0%, #f9f6f2 40%, #faf8f5 100%) !important;
   }
   .app-root::after {
-    opacity: 0.15 !important;
+    opacity: 0.12 !important;
   }
   .network-bg {
     opacity: 0.12 !important;
@@ -258,14 +253,30 @@ body.light-mode {
   .card-front-bar { background: linear-gradient(to right, #c0507a, #6052b0, #9c7800) !important; }
 
   // Experience
-  .exp-badge   { background: rgba(100,80,140,0.08) !important; border-color: rgba(100,80,140,0.25) !important; }
+  .exp-section-sub { color: #9088b0 !important; }
+  .exp-body-front {
+    background: rgba(255,252,250,0.92) !important;
+    border-color: rgba(100,80,140,0.14) !important;
+  }
+  .exp-badge   { background: rgba(100,80,140,0.06) !important; border-color: rgba(100,80,140,0.22) !important; }
   .exp-title   { color: #2d2244 !important; }
   .exp-company { color: #3a3060 !important; }
-  .exp-period  { color: #7a7298 !important; }
-  .exp-points li { color: #4a4068 !important; }
+  .exp-at      { color: #9088b0 !important; }
+  .exp-sep     { color: #bbb6d0 !important; }
+  .exp-period  { color: #9088b0 !important; }
+  .exp-metrics { border-color: rgba(100,80,140,0.1) !important; }
+  .exp-metric  { background: rgba(100,80,140,0.04) !important; border-color: rgba(100,80,140,0.14) !important; }
+  .metric-label { color: #9088b0 !important; }
+  .exp-points li { color: #4a4068 !important; &::before { /* accent color kept via CSS var */ } }
+  .exp-skills  { border-color: rgba(100,80,140,0.1) !important; }
+  .exp-skill-tag { opacity: 0.7 !important; }
   .exp-flip-hint { color: #9088b0 !important; }
-  .exp-body-back { background: rgba(248,244,238,0.99) !important; border-color: rgba(100,80,140,0.18) !important; }
   .exp-back-hint { color: #9088b0 !important; }
+  .exp-body-back {
+    background: rgba(246,242,238,0.99) !important;
+    border-color: rgba(100,80,140,0.18) !important;
+  }
+  .legend-item { color: #9088b0 !important; }
 
   // Blog pages
   .blog-title   { color: #2d2244 !important; }

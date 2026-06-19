@@ -237,7 +237,16 @@
   border-radius: 20px;
   font-weight: 600;
   letter-spacing: 0.03em;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
   transition: background 0.2s ease, box-shadow 0.2s ease;
+
+  .tech-icon {
+    font-size: 0.85rem;
+    flex-shrink: 0;
+    opacity: 0.9;
+  }
 
   &:hover {
     background: rgba(196, 181, 253, 0.15);

@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from 'react'
 import GraphCanvas from '../GraphCanvas'
 import { NODE_TYPES } from '../../data/resumeGraph'
+import { TECH_ICON_MAP } from '../../data/techIcons'
 import './index.scss'
 
 const PROJECTS = [
@@ -98,7 +99,15 @@ const AssemblyCard = ({ title, badge, desc, tech, link, highlight = false, delay
           </div>
           <p className="card-desc">{desc}</p>
           <div className="card-tech">
-            {tech.map(t => <span key={t} className="tech-tag">{t}</span>)}
+            {tech.map(t => {
+              const Icon = TECH_ICON_MAP[t]
+              return (
+                <span key={t} className="tech-tag">
+                  {Icon && <Icon className="tech-icon" aria-hidden="true" />}
+                  {t}
+                </span>
+              )
+            })}
           </div>
           <div className="card-footer">
             <a
