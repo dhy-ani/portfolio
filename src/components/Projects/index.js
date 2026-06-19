@@ -9,30 +9,40 @@ const PROJECTS = [
     category: 'AI / ML',
     items: [
       {
-        title: 'ADPVerse',
+        title: 'SenseLense',
         badge: '🏆 Best AI Analytics — HackHers',
         desc: 'Real-time multimodal sentiment analysis pipeline for sales pitch evaluation with live scoring and feedback.',
-        tech: ['Python', 'SQLite', 'ElevenLabs', 'React'],
-        link: 'https://github.com/dhy-ani/SenseLense',
+        tech: ['Python', 'SQLite', 'React'],
+        links: [
+          { label: '> demo', url: 'https://devpost.com/software/saleslense' },
+          { label: '< source', url: 'https://github.com/dhy-ani/SenseLense' },
+        ],
         highlight: true,
       },
       {
         title: 'AgentWeave',
-        desc: 'AI fashion recommender using Pinterest scraping, CLIP/BLIP embeddings, FAISS clustering, and YOLO body-type matching.',
+        desc: 'AI fashion recommender using CLIP/BLIP embeddings, FAISS clustering, and YOLO body-type matching.',
         tech: ['CLIP', 'FAISS', 'YOLOv5', 'Firebase', 'React'],
-        link: 'https://github.com/dhy-ani/agentweave',
+        links: [
+          { label: '> source', url: 'https://github.com/dhy-ani/agentweave' },
+        ],
       },
       {
         title: 'Skincare AI Recommender',
         desc: 'CNN-based skincare classifier with Grad-CAM explainability, FastAPI backend, and webcam input for live suggestions.',
-        tech: ['PyTorch', 'FastAPI', 'Grad-CAM', 'Firebase'],
-        link: 'https://github.com/dhy-ani/prana',
+        tech: ['PyTorch', 'FastAPI', 'Firebase'],
+        links: [
+          { label: '> source', url: 'https://github.com/dhy-ani/prana' },
+        ],
       },
       {
-        title: 'LinkedIn Redesign',
-        desc: 'End-to-end UX redesign — user research with 5+ interviews, information architecture overhaul, wireframes, and an interactive React prototype with a cleaner visual design system.',
-        tech: ['Figma', 'React', 'CSS/SCSS', 'UX Research'],
-        link: 'https://linkedin-redesign-z364.onrender.com/',
+        title: 'Nexus',
+        desc: 'LinkedIn-style full-stack app with Flask REST API, AI-powered outreach guidance, recruiter mode, conference discovery, and WCAG-compliant keyboard navigation. 96% backend route coverage.',
+        tech: ['React', 'Flask', 'SQLite', 'JavaScript'],
+        links: [
+          { label: '> demo', url: 'https://drive.google.com/file/d/1AkS57aSHBQzu35NG06gR52sXLA4e0DH7/view?usp=sharing' },
+        ],
+        highlight: false,
       },
     ],
   },
@@ -42,21 +52,25 @@ const PROJECTS = [
       {
         title: 'NoteShare Platform',
         desc: 'Full-stack academic note-sharing app with JWT auth, Spring Boot API, and AWS S3 file storage.',
-        tech: ['Spring Boot', 'PostgreSQL', 'AWS S3', 'JWT', 'React'],
-        link: 'https://github.com/dhy-ani/note-sharing-platform',
+        tech: ['Spring Boot', 'PostgreSQL', 'AWS S3', 'React'],
+        links: [
+          { label: '> source', url: 'https://github.com/dhy-ani/note-sharing-platform' },
+        ],
       },
       {
         title: 'Tea & Coffee Accessories',
         desc: 'E-commerce store with CRUD operations, AJAX live inventory updates, and SQL injection protection.',
         tech: ['MySQL', 'PHP', 'AJAX', 'JavaScript'],
-        link: 'https://github.com/dhy-ani/ds2338-IT202-Project',
+        links: [
+          { label: '> source', url: 'https://github.com/dhy-ani/ds2338-IT202-Project' },
+        ],
       },
     ],
   },
 ]
 
 // ── Card with 3-D flip ───────────────────────────────────────────────
-const AssemblyCard = ({ title, badge, desc, tech, link, highlight = false, delay = 0 }) => {
+const AssemblyCard = ({ title, badge, desc, tech, links = [], highlight = false, delay = 0 }) => {
   const ref = useRef(null)
   const [stage, setStage]   = useState(0)
   const [flipped, setFlipped] = useState(false)
@@ -110,15 +124,20 @@ const AssemblyCard = ({ title, badge, desc, tech, link, highlight = false, delay
             })}
           </div>
           <div className="card-footer">
-            <a
-              href={link}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="card-link"
-              onClick={e => e.stopPropagation()}
-            >
-              {'>'} view_project
-            </a>
+            <div className="card-links">
+              {links.map(({ label, url }) => (
+                <a
+                  key={label}
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="card-link"
+                  onClick={e => e.stopPropagation()}
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
             <span className="card-flip-hint">flip for graph ↩</span>
           </div>
         </div>
