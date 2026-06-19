@@ -22,14 +22,17 @@ const CURRENT = [
   { id: 'nlp',     label: 'NLP / BERT',         color: '#c4b5fd', proof: 'RAISE-25: BERT + t-SNE pipeline surfacing public concerns from large text datasets.' },
   { id: 'apis',    label: 'REST APIs',           color: '#fde68a', proof: 'FastAPI for skincare AI; Spring Boot APIs; ElevenLabs + LLM integrations.' },
   { id: 'linux',   label: 'Linux / CLI',         color: '#f5a623', proof: 'Primary dev environment; bash scripting for data pipelines on research servers.' },
+  { id: 'bedrock', label: 'AWS Bedrock',         color: '#ff9900', proof: 'Building a multi-step AI agent at TCS on AWS Bedrock to automate QA review of stored procedures.' },
+  { id: 'agents',  label: 'Agentic AI',          color: '#7dd3fc', proof: 'Designing agents that plan, use tools, and evaluate outputs at TCS; building a digital twin for this page.' },
 ]
 
 const GOALS = [
-  { id: 'cloud',     label: 'Cloud (AWS/GCP)',    color: '#ff9900', proof: 'Used AWS S3 for NoteShare. Goal: architect cloud-native ML infrastructure at scale.' },
-  { id: 'llm',       label: 'LLMs + Fine-tuning', color: '#74b9ff', proof: 'Built on LLM APIs. Goal: custom fine-tuning, RLHF pipelines, and evaluation frameworks.' },
-  { id: 'mlops',     label: 'MLOps',              color: '#a29bfe', proof: 'Goal: production ML with CI/CD, model monitoring, and automated versioning.' },
-  { id: 'sysdesign', label: 'System Design',      color: '#fd79a8', proof: 'Goal: design distributed systems - load balancers, caching, microservices end-to-end.' },
-  { id: 'k8s',       label: 'Kubernetes',         color: '#326ce5', proof: 'Goal: orchestrate containerized ML workloads and auto-scale inference in production.' },
+  { id: 'llm',       label: 'LLMs + Fine-tuning',  color: '#74b9ff', proof: 'Built on LLM APIs. Goal: custom fine-tuning, RLHF pipelines, and evaluation frameworks.' },
+  { id: 'mlops',     label: 'MLOps',                color: '#a29bfe', proof: 'Goal: production ML with CI/CD, model monitoring, and automated versioning.' },
+  { id: 'sysdesign', label: 'System Design',        color: '#fd79a8', proof: 'Goal: design distributed systems — load balancers, caching, microservices end-to-end.' },
+  { id: 'k8s',       label: 'Kubernetes',           color: '#326ce5', proof: 'Goal: orchestrate containerized ML workloads and auto-scale inference in production.' },
+  { id: 'quantum',   label: 'Quantum ML',           color: '#a78bfa', proof: 'WISER program at Cornell Tech (Summer 2026): classical + quantum + AI applied to real-world optimization.' },
+  { id: 'multiagent',label: 'Multi-Agent Systems',  color: '#34d399', proof: 'Goal: architect networks of specialised agents that collaborate, delegate, and self-correct.' },
 ]
 
 const EDGES = [
@@ -46,19 +49,26 @@ const EDGES = [
   { from: 'git',    to: 'docker',    dash: false },
   { from: 'sql',    to: 'apis',      dash: false },
   { from: 'sql',    to: 'spring',    dash: false },
+  // Foundation → Current (solid)
+  { from: 'python',  to: 'bedrock',   dash: false },
+  { from: 'python',  to: 'agents',    dash: false },
+  { from: 'ml',      to: 'agents',    dash: false },
+  { from: 'bedrock', to: 'agents',    dash: false },
   // Current → Goals (dashed)
-  { from: 'pytorch', to: 'llm',       dash: true },
-  { from: 'pytorch', to: 'mlops',     dash: true },
-  { from: 'ml',      to: 'llm',       dash: true },
-  { from: 'ml',      to: 'mlops',     dash: true },
-  { from: 'docker',  to: 'k8s',       dash: true },
-  { from: 'docker',  to: 'cloud',     dash: true },
-  { from: 'spring',  to: 'sysdesign', dash: true },
-  { from: 'spring',  to: 'cloud',     dash: true },
-  { from: 'nlp',     to: 'llm',       dash: true },
-  { from: 'cv',      to: 'mlops',     dash: true },
-  { from: 'apis',    to: 'cloud',     dash: true },
-  { from: 'linux',   to: 'cloud',     dash: true },
+  { from: 'pytorch', to: 'llm',        dash: true },
+  { from: 'pytorch', to: 'mlops',      dash: true },
+  { from: 'ml',      to: 'llm',        dash: true },
+  { from: 'ml',      to: 'mlops',      dash: true },
+  { from: 'docker',  to: 'k8s',        dash: true },
+  { from: 'spring',  to: 'sysdesign',  dash: true },
+  { from: 'nlp',     to: 'llm',        dash: true },
+  { from: 'cv',      to: 'mlops',      dash: true },
+  { from: 'linux',   to: 'k8s',        dash: true },
+  { from: 'agents',  to: 'multiagent', dash: true },
+  { from: 'agents',  to: 'llm',        dash: true },
+  { from: 'bedrock', to: 'multiagent', dash: true },
+  { from: 'ml',      to: 'quantum',    dash: true },
+  { from: 'apis',    to: 'sysdesign',  dash: true },
 ]
 
 // Pre-compute positions — explicit top/bot padding per tier so nodes never

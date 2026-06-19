@@ -358,6 +358,18 @@ body.light-mode {
   .legend-item { color: #9a7890 !important; }
 
   // Blog pages
+  .blog-coming-soon {
+    background: rgba(255, 246, 250, 0.82) !important;
+    border-color: rgba(184, 52, 104, 0.16) !important;
+    backdrop-filter: blur(2px) !important;
+  }
+  .cs-glow {
+    background:
+      radial-gradient(ellipse 600px 300px at 50% 100%, rgba(184,52,104,0.08) 0%, transparent 70%),
+      radial-gradient(ellipse 500px 250px at 50% 0%,   rgba(125,74,156,0.06) 0%, transparent 70%) !important;
+  }
+  .cs-label { color: #9c7800 !important; text-shadow: none !important; }
+  .cs-sub { color: #7a5e72 !important; }
   .blog-title   { color: #180f1a !important; }
   .blog-subtitle { color: #7a5e72 !important; }
   .blog-section-label { color: #9a7890 !important; }
