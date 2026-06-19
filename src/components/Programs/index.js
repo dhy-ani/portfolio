@@ -8,7 +8,7 @@ const PROGRAMS = [
     period: 'Summer 2026',
     color: '#a78bfa',
     tag: '6-week intensive',
-    desc: 'A rigorous 6-week training program unifying three computing paradigms — classical algorithms, quantum computing, and AI — applied to real-world optimization challenges in drug discovery, energy grids, financial markets, and machine learning. Learn how they compare, where each hits its limits, and how combining them unlocks solutions none could reach alone.',
+    desc: 'A rigorous 6-week training program unifying three computing paradigms: classical algorithms, quantum computing, and AI, applied to real-world optimization challenges in drug discovery, energy grids, financial markets, and machine learning. It explores how each paradigm compares, where each hits its limits, and how combining them unlocks solutions none could reach alone.',
     skills: ['Quantum Computing', 'Classical Algorithms', 'AI Optimization'],
   },
   {
@@ -17,7 +17,7 @@ const PROGRAMS = [
     period: 'Completed',
     color: '#34d399',
     tag: 'Technical Training',
-    desc: 'Selective intermediate-level course focused on problem-solving patterns, algorithm design, and coding interview fluency — with an adaptive curriculum that adjusts to your current level.',
+    desc: 'Selective intermediate-level course focused on problem-solving patterns, algorithm design, and coding interview fluency. The curriculum adapts to your current level as you progress.',
     skills: ['Data Structures', 'Algorithms', 'Problem Solving', 'Interview Prep'],
   },
 ]

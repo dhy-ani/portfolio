@@ -63,8 +63,8 @@
   @for $i from 0 through 3 { &:nth-child(#{$i + 1}) { animation-delay: #{$i * 0.6}s; } }
 
   &:hover {
-    border-color: rgba(196, 148, 44, 0.35);
-    box-shadow: 0 0 28px rgba(196, 148, 44, 0.12), 0 8px 32px rgba(0,0,0,0.3);
+    border-color: rgba(220, 218, 235, 0.28);
+    box-shadow: 0 0 28px rgba(220, 218, 235, 0.08), 0 8px 32px rgba(0,0,0,0.3);
     transform: translateY(-5px);
     animation-play-state: paused;
   }

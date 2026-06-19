@@ -24,9 +24,7 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            CS and AI student at NJIT, international student. Done UX research, built AI
-            rehabilitation tools that <a href="https://news.njit.edu/150-honors-scholars-showcase-findings-interdisciplinary-research-forum" target="_blank" rel="noopener noreferrer" className="about-inline-link">placed first at the NJIT Honors Research Forum</a>,
-            and landed an <strong>AI/ML Fellowship at Cornell Tech</strong>. Heading to <strong>TCS</strong> this summer to build agentic AI systems.
+            CS and AI student at NJIT, international student. I have done UX research, built AI rehabilitation tools that placed first at the NJIT Honors Research Forum, and landed an <strong>AI/ML Fellowship at Cornell Tech</strong>. I am heading to <strong>TCS</strong> this summer to build agentic AI systems.
           </p>
           <p>
             Right now I'm building a <strong>digital twin</strong> that'll live on this page.
