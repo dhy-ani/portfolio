@@ -12,13 +12,13 @@ const PROGRAMS = [
     skills: ['Quantum Computing', 'Classical Algorithms', 'AI Optimization'],
   },
   {
-    name: 'CodePath',
-    org: 'CodePath.org',
-    period: 'Ongoing',
+    name: 'Intermediate Technical Interview Prep · Adaptive',
+    org: 'CodePath',
+    period: 'Completed',
     color: '#34d399',
     tag: 'Technical Training',
-    desc: 'Completed Technical Interview Prep and AI Engineering courses — covering data structures, algorithms, system design, and applied AI/ML engineering fundamentals for industry-ready software development.',
-    skills: ['Data Structures', 'Algorithms', 'AI Engineering', 'System Design'],
+    desc: 'Selective intermediate-level course focused on problem-solving patterns, algorithm design, and coding interview fluency — with an adaptive curriculum that adjusts to your current level.',
+    skills: ['Data Structures', 'Algorithms', 'Problem Solving', 'Interview Prep'],
   },
 ]
 
