@@ -92,6 +92,14 @@ const Hero = () => {
               <span className="resume-icon">{'▶'}</span>
               {'[ run_resume ]'}
             </a>
+            <a
+              href="https://github.com/dhy-ani"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-terminal secondary"
+            >
+              {'[ github ]'}
+            </a>
             <button className="btn-terminal secondary" onClick={() => scrollTo('contact')}>
               {'[ send_message ]'}
             </button>
