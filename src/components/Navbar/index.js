@@ -24,7 +24,7 @@ const Navbar = () => {
   const [active,    setActive]    = useState('hero')
   const [scrolled,  setScrolled]  = useState(false)
   const [lightMode, setLightMode] = useState(
-    () => localStorage.getItem('theme') === 'light'
+    () => localStorage.getItem('theme') !== 'dark'
   )
 
   useEffect(() => {

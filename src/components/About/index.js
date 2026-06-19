@@ -4,7 +4,7 @@ import './index.scss'
 const STATS = [
   { icon: '◈', label: 'GPA 3.62',          desc: 'Albert Dorman Honors College @ NJIT' },
   { icon: '◉', label: 'AI/ML Fellow',       desc: 'Break Through Tech @ Cornell' },
-  { icon: '◇', label: '1st Place',          desc: 'NJIT Research Forum 2025' },
+  { icon: '◇', label: '1st Place',          desc: 'NJIT Research Forum 2025', link: 'https://news.njit.edu/150-honors-scholars-showcase-findings-interdisciplinary-research-forum' },
   { icon: '◆', label: 'URI Award',          desc: 'Undergraduate Research and Innovation Seed Grant Finalist' },
 ]
 
@@ -56,13 +56,17 @@ const About = () => {
   )
 }
 
-const StatCard = ({ icon, label, desc, delay }) => {
+const StatCard = ({ icon, label, desc, link, delay }) => {
   const ref = useScrollReveal(0.2)
   return (
     <div ref={ref} className="scroll-reveal stat-card" style={{ transitionDelay: `${delay}ms` }}>
       <span className="stat-icon">{icon}</span>
       <span className="stat-label">{label}</span>
-      <span className="stat-desc">{desc}</span>
+      <span className="stat-desc">
+        {link
+          ? <a href={link} target="_blank" rel="noopener noreferrer">{desc}</a>
+          : desc}
+      </span>
     </div>
   )
 }

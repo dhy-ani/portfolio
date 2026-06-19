@@ -40,9 +40,10 @@ const ROLES = [
     color: '#9d8dd6',
     badge: '1st Place · Honors Research Forum · 40+ teams',
     skills: ['Python', 'OpenCV', 'CNN'],
+    articleLink: 'https://news.njit.edu/150-honors-scholars-showcase-findings-interdisciplinary-research-forum',
     points: [
       'Built an AI rehabilitation tool for aquatic therapy using pose estimation via OpenCV and Python, with a custom preprocessing pipeline (frame differencing, landmark smoothing) that significantly improved keypoint detection accuracy.',
-      'Trained and evaluated CNN architectures on 2,400+ annotated video clips, selecting the best accuracy-latency tradeoff for clinical deployment.',
+      'Trained and evaluated CNN architectures on annotated video clips, selecting the best accuracy-latency tradeoff for clinical deployment.',
       'Placed 1st at NJIT\'s Honors Interdisciplinary Research Forum (40+ teams); selected as a Finalist for the Undergraduate Research and Innovation Program.',
     ],
   },
@@ -60,7 +61,7 @@ const ROLES = [
   },
 ]
 
-const ExperienceCard = ({ title, company, org, period, color, badge, skills, points, delay = 0 }) => {
+const ExperienceCard = ({ title, company, org, period, color, badge, skills, points, articleLink, delay = 0 }) => {
   const ref = useRef(null)
   const [flipped, setFlipped] = useState(false)
 
@@ -115,6 +116,17 @@ const ExperienceCard = ({ title, company, org, period, color, badge, skills, poi
             <ul className="exp-points">
               {points.map((p, i) => <li key={i}>{p}</li>)}
             </ul>
+            {articleLink && (
+              <a
+                href={articleLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="exp-article-link"
+                onClick={e => e.stopPropagation()}
+              >
+                ↗ NJIT News coverage
+              </a>
+            )}
 
             {skills?.length > 0 && (
               <div className="exp-skills">
