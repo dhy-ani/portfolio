@@ -185,7 +185,7 @@ h1 {
 .hero-status {
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.875rem;
-  color: #4a4466;
+  color: #8b7f6a;
   letter-spacing: 0.06em;
   display: flex;
   align-items: center;
@@ -198,7 +198,7 @@ h1 {
     box-shadow: 0 0 10px rgba(244,160,181,0.7);
     animation: pulse 2.2s ease-in-out infinite;
   }
-  .status-sep { opacity: 0.3; }
+  .status-sep { opacity: 0.5; }
 }
 
 @keyframes pulse { 0%,100% { opacity:1; } 50% { opacity:0.4; } }
@@ -305,7 +305,7 @@ h1 {
   gap: 8px;
   font-family: 'Courier New', Courier, monospace;
   font-size: 0.875rem;
-  color: #4a4466;
+  color: #7a7060;
   letter-spacing: 0.1em;
   animation: fadeInUp 1s 3.8s ease backwards;
 }

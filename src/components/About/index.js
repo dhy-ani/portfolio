@@ -24,12 +24,11 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            I'm a Computer Science student with an AI Minor at <strong>the New Jersey Institute of Technology</strong>,
-            passionate about building systems that bridge data and human experience.
+            I'm a Computer Science student with an AI Minor at <strong>the New Jersey Institute of Technology</strong>.
           </p>
           <p>
             Selected as an <strong>AI & ML Fellow at Cornell Tech</strong> from 4,000+ applicants,
-            and currently conducting AI rehabilitation research at CNALab, where my work improved
+            and conducted AI rehabilitation research at CNALab, where my work improved
             keypoint detection accuracy by 35%.
           </p>
           <p>

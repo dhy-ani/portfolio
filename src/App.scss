@@ -52,33 +52,32 @@ $font-sans:       'HelveticaNeue', 'Helvetica Neue', Arial, sans-serif;
 
 $font-display: 'HelveticaNeue', 'Helvetica Neue', Arial, sans-serif;
 
-// ── Root ─────────────────────────────────────────────────
+// ── Root — MET Museum dark: warm near-black, gold + burgundy glows ───
 .app-root {
   min-height: 100vh;
-  // Deep navy-violet — clean, premium dark base
   background:
-    linear-gradient(145deg, #07061a 0%, #090820 38%, #07091d 65%, #06061a 100%);
+    linear-gradient(150deg, #0c0904 0%, #100c07 35%, #0d0a06 65%, #0b0805 100%);
   position: relative;
 
-  // Two-point ambient glow: lavender top-left, pink bottom-right
   &::after {
     content: '';
     position: fixed;
     inset: 0;
     background:
-      radial-gradient(ellipse 900px 650px at 8%  6%,  rgba(164,130,255,0.06)  0%, transparent 60%),
-      radial-gradient(ellipse 800px 580px at 92% 96%, rgba(244,160,181,0.055) 0%, transparent 60%),
-      radial-gradient(ellipse 1100px 800px at 50% 50%, rgba(6, 5, 18, 0.3)    0%, transparent 68%);
+      radial-gradient(ellipse 950px 680px at 6%   5%,  rgba(196, 148, 44, 0.065) 0%, transparent 62%),
+      radial-gradient(ellipse 800px 600px at 94%  95%, rgba(140,  28, 36, 0.055) 0%, transparent 62%),
+      radial-gradient(ellipse 700px 500px at 50%  42%, rgba(180, 120, 30, 0.028) 0%, transparent 65%),
+      radial-gradient(ellipse 1200px 900px at 50% 50%, rgba(10,   7,  3, 0.32)  0%, transparent 70%);
     pointer-events: none;
     z-index: 0;
-    animation: ambientShift 22s ease-in-out infinite alternate;
+    animation: ambientShift 24s ease-in-out infinite alternate;
   }
 }
 
 @keyframes ambientShift {
-  0%   { opacity: 0.85; }
+  0%   { opacity: 0.82; }
   50%  { opacity: 1; }
-  100% { opacity: 0.85; }
+  100% { opacity: 0.82; }
 }
 
 main { position: relative; z-index: 1; }
@@ -122,16 +121,16 @@ main { position: relative; z-index: 1; }
   }
 }
 
-// ── Grid dot overlay ───────────────────────────────────
+// ── Grid dot overlay — warm gold on MET dark ──────────
 body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: radial-gradient(rgba(164, 148, 230, 0.04) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(196, 148, 44, 0.055) 1px, transparent 1px);
   background-size: 36px 36px;
   pointer-events: none;
   z-index: 0;
-  opacity: 0.85;
+  opacity: 0.9;
 }
 
 
@@ -155,7 +154,8 @@ body.light-mode {
   }
 
   .app-root {
-    background: linear-gradient(145deg, #fdfcfb 0%, #f9f6f2 40%, #faf8f5 100%) !important;
+    // Museum ivory — warm gallery wall
+    background: linear-gradient(145deg, #faf6ee 0%, #f4ede0 40%, #f7f2e8 100%) !important;
   }
   .app-root::after {
     opacity: 0.12 !important;
