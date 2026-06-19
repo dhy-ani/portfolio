@@ -136,7 +136,7 @@ body::before {
 
 
 // ── Scroll anchor offset ──────────────────────────────────
-#hero, #about, #skills, #projects, #experience, #contact {
+#hero, #about, #skills, #projects, #experience, #programs, #contact {
   scroll-margin-top: 72px;
 }
 
@@ -253,29 +253,21 @@ body.light-mode {
   .card-front-bar { background: linear-gradient(to right, #c0507a, #6052b0, #9c7800) !important; }
 
   // Experience
-  .exp-section-sub { color: #9088b0 !important; }
   .exp-body-front {
-    background: rgba(255,252,250,0.92) !important;
-    border-color: rgba(100,80,140,0.14) !important;
+    background: rgba(255,252,250,0.9) !important;
+    border-color: rgba(100,80,140,0.12) !important;
   }
-  .exp-badge   { background: rgba(100,80,140,0.06) !important; border-color: rgba(100,80,140,0.22) !important; }
   .exp-title   { color: #2d2244 !important; }
-  .exp-company { color: #3a3060 !important; }
-  .exp-at      { color: #9088b0 !important; }
-  .exp-sep     { color: #bbb6d0 !important; }
+  .exp-sub     { color: #6b6390 !important; }
   .exp-period  { color: #9088b0 !important; }
-  .exp-metrics { border-color: rgba(100,80,140,0.1) !important; }
-  .exp-metric  { background: rgba(100,80,140,0.04) !important; border-color: rgba(100,80,140,0.14) !important; }
-  .metric-label { color: #9088b0 !important; }
-  .exp-points li { color: #4a4068 !important; &::before { /* accent color kept via CSS var */ } }
-  .exp-skills  { border-color: rgba(100,80,140,0.1) !important; }
-  .exp-skill-tag { opacity: 0.7 !important; }
-  .exp-flip-hint { color: #9088b0 !important; }
-  .exp-back-hint { color: #9088b0 !important; }
+  .exp-badge   { opacity: 0.8 !important; }
+  .exp-points li { color: #4a4068 !important; }
+  .exp-skill-tag { opacity: 0.65 !important; }
   .exp-body-back {
     background: rgba(246,242,238,0.99) !important;
     border-color: rgba(100,80,140,0.18) !important;
   }
+  .exp-back-hint { color: #9088b0 !important; }
   .legend-item { color: #9088b0 !important; }
 
   // Blog pages
@@ -318,6 +310,12 @@ body.light-mode {
     border-color: rgba(100,80,140,0.28) !important;
     &.active, &:hover { color: #5040a0 !important; border-color: rgba(80,64,160,0.5) !important; background: rgba(80,64,160,0.06) !important; }
   }
+
+  // Programs
+  .program-card { background: rgba(255,252,250,0.92) !important; border-color: rgba(100,80,140,0.1) !important; }
+  .prog-name { color: #2d2244 !important; }
+  .prog-org, .prog-desc { color: #6b6390 !important; }
+  .programs-sub { color: #9088b0 !important; }
 
   // Contact
   .contact-sub { color: #4a4068 !important; }

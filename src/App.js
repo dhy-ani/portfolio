@@ -6,6 +6,7 @@ import About             from './components/About'
 import SkillNetwork      from './components/SkillNetwork'
 import Projects          from './components/Projects'
 import Experience        from './components/Experience'
+import Programs          from './components/Programs'
 import Contact           from './components/Contact'
 import BuildProgress     from './components/BuildProgress'
 import Blogs             from './components/Blogs'
@@ -27,6 +28,7 @@ function App() {
               <SkillNetwork />
               <Projects />
               <Experience />
+              <Programs />
               <Contact />
             </main>
           </>

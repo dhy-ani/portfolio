@@ -41,6 +41,7 @@ const PROJECTS = [
         tech: ['React', 'Flask', 'SQLite', 'JavaScript'],
         links: [
           { label: '> demo', url: 'https://drive.google.com/file/d/1AkS57aSHBQzu35NG06gR52sXLA4e0DH7/view?usp=sharing' },
+          { label: '< source', url: 'https://github.com/krishishah05/linkedin-redesign' },
         ],
         highlight: false,
       },

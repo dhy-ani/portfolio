@@ -11,15 +11,11 @@ const ROLES = [
     org: 'TCS',
     period: 'May 2026 – Aug 2026',
     color: '#7dd3fc',
-    badge: 'Industry Internship · Incoming',
-    skills: ['Python', 'AWS Bedrock', 'Lambda', 'DynamoDB', 'Terraform', 'AI Agents'],
-    metrics: [
-      { value: '20pt', label: 'QA Checklist' },
-      { value: 'AWS', label: 'Serverless' },
-    ],
+    badge: 'Incoming · Summer 2026',
+    skills: ['Python', 'AWS Bedrock', 'Lambda', 'DynamoDB', 'Terraform'],
     points: [
-      'Designing a multi-step AI agent on AWS Bedrock that validates stored procedure outputs against a 20-point requirements report checklist, flagging data inaccuracies and automating a previously manual QA process.',
-      'Architecting serverless infrastructure using Lambda, API Gateway, S3, DynamoDB, and Terraform to support scalable cloud deployments.',
+      'Designing a multi-step AI agent on AWS Bedrock to validate stored procedure outputs against a 20-point QA checklist — automating a previously manual review process.',
+      'Architecting serverless infrastructure (Lambda, API Gateway, S3, DynamoDB, Terraform) for scalable cloud deployments.',
     ],
   },
   {
@@ -29,15 +25,11 @@ const ROLES = [
     period: 'Mar 2026 – Mar 2027',
     color: '#e991b0',
     badge: 'Selected from 4,000+ applicants',
-    skills: ['Python', 'Pandas', 'Scikit-Learn', 'Matplotlib', 'Predictive Modeling'],
-    metrics: [
-      { value: '4K+', label: 'Applicants' },
-      { value: '1 yr', label: 'Fellowship' },
-    ],
+    skills: ['Python', 'Pandas', 'Scikit-Learn', 'Matplotlib'],
     points: [
       'Selected nationally from 4,000+ applicants for a rigorous year-long AI Fellowship at Cornell Tech.',
-      'Developing hands-on ML expertise through an accelerated Python bootcamp and advanced coursework in data wrangling, predictive modeling, and performance evaluation — applying Pandas, Scikit-Learn, and Matplotlib.',
-      'Scheduled to lead an AIStudio project with an industry sponsor (Aug 2026–Mar 2027), managing a cross-functional team to ship a deployment-ready ML product and deliver final outcomes to senior executive leadership.',
+      'Building ML expertise through an accelerated Python bootcamp — data wrangling, predictive modeling, and performance evaluation with Pandas, Scikit-Learn, and Matplotlib.',
+      'Leading an AIStudio project with an industry sponsor (Aug 2026–Mar 2027) to ship a deployment-ready ML product presented to senior executive leadership.',
     ],
   },
   {
@@ -46,17 +38,12 @@ const ROLES = [
     org: 'NJIT',
     period: 'Sept 2025 – May 2026',
     color: '#9d8dd6',
-    badge: '1st Place — Honors Interdisciplinary Research Forum',
-    skills: ['Python', 'OpenCV', 'Pose Estimation', 'Image Enhancement', 'CNN'],
-    metrics: [
-      { value: '+35%', label: 'Accuracy' },
-      { value: '#1', label: 'of 40+ Teams' },
-      { value: 'Finalist', label: 'URIP' },
-    ],
+    badge: '1st Place · Honors Research Forum · 40+ teams',
+    skills: ['Python', 'OpenCV', 'CNN'],
     points: [
-      'Won 1st Place at NJIT\'s Honors Interdisciplinary Research Forum (40+ competitors) by delivering a research presentation clearly connecting methods to real-world impact; also selected as a Finalist for the Undergraduate Research and Innovation Program.',
-      'Developed an AI-powered rehabilitation tool for patient mobility tracking in aquatic therapy by implementing pose estimation with OpenCV and Python; built a custom preprocessing pipeline with image enhancement.',
-      'Improved keypoint detection by 35% and reduced labeling errors in the training dataset, increasing joint torque and acceleration analysis accuracy underwater.',
+      'Built an AI rehabilitation tool for aquatic therapy — pose estimation via OpenCV and Python with a custom preprocessing pipeline (frame differencing, landmark smoothing) that improved keypoint detection by 35%.',
+      'Trained and evaluated CNN architectures on 2,400+ annotated video clips, selecting the best accuracy-latency tradeoff for clinical deployment.',
+      'Placed 1st at NJIT\'s Honors Interdisciplinary Research Forum (40+ teams); selected as a Finalist for the Undergraduate Research and Innovation Program.',
     ],
   },
   {
@@ -65,20 +52,15 @@ const ROLES = [
     org: 'NJIT',
     period: 'May 2024 – Dec 2024',
     color: '#e8c040',
-    skills: ['User Research', 'UX Strategy', 'Journey Mapping', 'Persona Dev', 'Segmentation'],
-    metrics: [
-      { value: '25+', label: 'Interviews' },
-      { value: '3', label: 'UX Designs' },
-    ],
+    skills: ['Figma'],
     points: [
-      'Led qualitative UX research for inclusive interface design; conducted and analyzed 25+ interviews with older adults to uncover accessibility gaps in digital safety.',
-      'Converted behavioral insights into actionable recommendations via 3 designs of UX storyboards and strategy reports.',
-      'Applied market research techniques like user personas, segmentation analysis, and journey mapping to inform CX and product strategies, influencing inclusive UI changes for campus-wide platforms.',
+      'Led qualitative research for inclusive interface design — conducted 25+ interviews with older adults to uncover accessibility gaps in digital safety.',
+      'Delivered 3 UX storyboard designs and strategy reports; applied persona mapping, segmentation, and journey mapping to influence UI changes for campus-wide platforms.',
     ],
   },
 ]
 
-const ExperienceCard = ({ title, company, org, period, color, badge, skills, metrics, points, delay = 0 }) => {
+const ExperienceCard = ({ title, company, org, period, color, badge, skills, points, delay = 0 }) => {
   const ref = useRef(null)
   const [flipped, setFlipped] = useState(false)
 
@@ -101,13 +83,11 @@ const ExperienceCard = ({ title, company, org, period, color, badge, skills, met
       className="exp-card scroll-reveal"
       style={{ transitionDelay: `${delay}ms`, '--accent': color }}
     >
-      {/* Timeline column */}
       <div className="exp-left">
-        <div className="exp-dot" style={{ background: color, boxShadow: `0 0 14px ${color}70` }} />
+        <div className="exp-dot" style={{ background: color, boxShadow: `0 0 12px ${color}60` }} />
         <div className="exp-line" />
       </div>
 
-      {/* Flippable body */}
       <div
         className="exp-body-flip"
         onClick={() => setFlipped(f => !f)}
@@ -115,36 +95,28 @@ const ExperienceCard = ({ title, company, org, period, color, badge, skills, met
       >
         <div className={`exp-body-inner ${flipped ? 'flipped' : ''}`}>
 
-          {/* ── Front ── */}
+          {/* Front */}
           <div className="exp-body-front">
-            <div className="exp-card-header">
-              {badge && <div className="exp-badge">{badge}</div>}
-              <h3 className="exp-title">{title}</h3>
-              <div className="exp-meta">
-                <span className="exp-company">{company}</span>
-                <span className="exp-at">@</span>
-                <span className="exp-org" style={{ color }}>{org}</span>
-                <span className="exp-sep">·</span>
+            <div className="exp-head">
+              <div className="exp-head-left">
+                <h3 className="exp-title">{title}</h3>
+                <p className="exp-sub">
+                  {company}
+                  <span className="exp-at"> @ </span>
+                  <span style={{ color }}>{org}</span>
+                </p>
+              </div>
+              <div className="exp-head-right">
                 <span className="exp-period">{period}</span>
+                {badge && <span className="exp-badge">{badge}</span>}
               </div>
             </div>
-
-            {metrics && metrics.length > 0 && (
-              <div className="exp-metrics">
-                {metrics.map(m => (
-                  <div key={m.label} className="exp-metric" style={{ '--m-color': color }}>
-                    <span className="metric-value">{m.value}</span>
-                    <span className="metric-label">{m.label}</span>
-                  </div>
-                ))}
-              </div>
-            )}
 
             <ul className="exp-points">
               {points.map((p, i) => <li key={i}>{p}</li>)}
             </ul>
 
-            {skills && skills.length > 0 && (
+            {skills?.length > 0 && (
               <div className="exp-skills">
                 {skills.map(s => {
                   const Icon = TECH_ICON_MAP[s]
@@ -158,10 +130,10 @@ const ExperienceCard = ({ title, company, org, period, color, badge, skills, met
               </div>
             )}
 
-            <span className="exp-flip-hint">click to explore graph ↩</span>
+            <span className="exp-flip-hint">explore knowledge graph ↩</span>
           </div>
 
-          {/* ── Back: knowledge graph ── */}
+          {/* Back */}
           <div className="exp-body-back">
             <div className="exp-back-header">
               <span className="exp-back-title" style={{ color }}>{'> '}{title}</span>
@@ -206,17 +178,12 @@ const Experience = () => {
     <section id="experience" className="experience-section section">
       <div className="section-inner">
         <div className="terminal-label">&gt; run_experience()</div>
-
         <div ref={titleRef} className="scroll-reveal">
           <h2 className="section-title">Experience</h2>
-          <p className="exp-section-sub">
-            Researcher · Fellow · Builder — across academia and industry
-          </p>
         </div>
-
         <div className="exp-list">
           {ROLES.map((r, i) => (
-            <ExperienceCard key={r.title} {...r} delay={i * 140} />
+            <ExperienceCard key={r.title} {...r} delay={i * 120} />
           ))}
         </div>
       </div>
