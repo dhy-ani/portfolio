@@ -2,8 +2,8 @@ import { useEffect, useRef, useReducer, useState } from 'react'
 import { GRAPHS, NODE_TYPES } from '../../data/resumeGraph'
 
 // SVG coordinate space for the card-back canvas
-const VW = 260
-const VH = 185
+const VW = 340
+const VH = 240
 
 // Truncate long labels so they fit inside the small canvas
 const trunc = (s, n = 17) => (s.length > n ? s.slice(0, n - 1) + '…' : s)
@@ -29,7 +29,7 @@ export default function GraphCanvas({ graphKey }) {
     const pos = {}, vel = {}
     graph.nodes.forEach((n, i) => {
       const a = (i / graph.nodes.length) * Math.PI * 2 - Math.PI / 2
-      pos[n.id] = { x: VW / 2 + Math.cos(a) * 58, y: VH / 2 + Math.sin(a) * 48 }
+      pos[n.id] = { x: VW / 2 + Math.cos(a) * 78, y: VH / 2 + Math.sin(a) * 64 }
       vel[n.id] = { vx: 0, vy: 0 }
     })
     posRef.current = pos
@@ -64,14 +64,14 @@ export default function GraphCanvas({ graphKey }) {
         fy += (dy / d) * Math.min(650 / (d * d), 35)
       })
 
-      // Spring attraction along connected edges (target 62 px)
+      // Spring attraction along connected edges (target 80 px)
       graph.edges.forEach(({ from, to }) => {
         const other = from === n.id ? to : to === n.id ? from : null
         if (!other || !pos[other]) return
         const dx = pos[other].x - pos[n.id].x
         const dy = pos[other].y - pos[n.id].y
         const d  = Math.sqrt(dx * dx + dy * dy) || 0.1
-        const f  = (d - 62) * 0.036
+        const f  = (d - 80) * 0.036
         fx += (dx / d) * f
         fy += (dy / d) * f
       })
@@ -83,8 +83,8 @@ export default function GraphCanvas({ graphKey }) {
       // Integrate with damping
       vel[n.id].vx = (vel[n.id].vx + fx) * 0.76
       vel[n.id].vy = (vel[n.id].vy + fy) * 0.76
-      pos[n.id].x  = Math.max(13, Math.min(VW - 13, pos[n.id].x + vel[n.id].vx))
-      pos[n.id].y  = Math.max(13, Math.min(VH - 13, pos[n.id].y + vel[n.id].vy))
+      pos[n.id].x  = Math.max(16, Math.min(VW - 16, pos[n.id].x + vel[n.id].vx))
+      pos[n.id].y  = Math.max(16, Math.min(VH - 16, pos[n.id].y + vel[n.id].vy))
     })
 
     // Check if the graph has settled

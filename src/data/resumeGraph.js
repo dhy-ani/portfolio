@@ -182,6 +182,34 @@ export const GRAPHS = {
 
   /* ── EXPERIENCE ───────────────────────────────────────── */
 
+  'Agentic AI Engineering Intern': {
+    nodes: [
+      { id: 'python',    label: 'Python',                type: 'tool' },
+      { id: 'bedrock',   label: 'AWS Bedrock',           type: 'tool' },
+      { id: 'lambda',    label: 'Lambda',                type: 'tool' },
+      { id: 'dynamo',    label: 'DynamoDB',              type: 'tool' },
+      { id: 'terraform', label: 'Terraform',             type: 'tool' },
+      { id: 'agent',     label: 'Multi-step AI Agent',   type: 'concept' },
+      { id: 'serverless',label: 'Serverless Arch.',      type: 'concept' },
+      { id: 'qa',        label: 'QA Automation',         type: 'concept' },
+      { id: 'deploy',    label: 'Cloud Deployment',      type: 'outcome' },
+      { id: 'review',    label: 'Automated Review',      type: 'outcome' },
+      { id: 'tcs',       label: 'Tata Consultancy Svcs', type: 'context' },
+    ],
+    edges: [
+      { from: 'bedrock',   to: 'agent'     },
+      { from: 'python',    to: 'agent'     },
+      { from: 'agent',     to: 'qa'        },
+      { from: 'lambda',    to: 'serverless'},
+      { from: 'dynamo',    to: 'serverless'},
+      { from: 'terraform', to: 'deploy'    },
+      { from: 'serverless',to: 'deploy'    },
+      { from: 'qa',        to: 'review'    },
+      { from: 'deploy',    to: 'review'    },
+      { from: 'tcs',       to: 'deploy'    },
+    ],
+  },
+
   'AI & Machine Learning Fellow': {
     nodes: [
       { id: 'python',  label: 'Python Bootcamp',     type: 'tool' },
