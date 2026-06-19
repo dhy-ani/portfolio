@@ -90,7 +90,6 @@ const Programs = () => {
         <div className="terminal-label">&gt; load_programs()</div>
         <div ref={titleRef} className="scroll-reveal">
           <h2 className="section-title">Programs</h2>
-          <p className="programs-sub">Selective programs I've participated in beyond coursework.</p>
         </div>
         <div className="programs-list">
           {PROGRAMS.map((p, i) => (
