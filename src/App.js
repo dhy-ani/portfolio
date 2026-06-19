@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom'
 import NetworkBackground from './components/NetworkBackground'
+import CursorGlow       from './components/CursorGlow'
 import Navbar            from './components/Navbar'
 import Hero              from './components/Hero'
 import About             from './components/About'
@@ -17,6 +18,7 @@ function App() {
   return (
     <div className="app-root">
       <NetworkBackground />
+      <CursorGlow />
       <Navbar />
       <Routes>
         <Route path="/" element={

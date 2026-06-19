@@ -16,7 +16,7 @@ export const GRAPHS = {
 
   /* ── PROJECTS ─────────────────────────────────────────── */
 
-  ADPVerse: {
+  SenseLense: {
     nodes: [
       { id: 'python',     label: 'Python',              type: 'tool' },
       { id: 'react',      label: 'React',               type: 'tool' },
@@ -151,7 +151,7 @@ export const GRAPHS = {
     ],
   },
 
-  'LinkedIn Redesign': {
+  Nexus: {
     nodes: [
       { id: 'figma',   label: 'Figma',                   type: 'tool' },
       { id: 'react',   label: 'React',                   type: 'tool' },

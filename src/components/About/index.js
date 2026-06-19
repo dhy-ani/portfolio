@@ -24,21 +24,21 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            CS + AI student at NJIT who ended up at the intersection of AI and design
-            entirely by following what I found interesting — and just sort of stayed there.
+            I'm Dhyani — CS + AI student at NJIT, international student, and someone
+            who is currently teaching herself French entirely by choice. Slowly. But committed.
           </p>
           <p>
             I got into coding because I liked making things look good. I stayed because I
             realized you could make things <em>think</em> too. Since then: UX research,
-            AI rehabilitation tools that placed <strong>1st at the NJIT Research Forum</strong>,
-            and an <strong>AI & ML Fellowship at Cornell Tech</strong> I applied to three days before
-            the deadline on a whim (4,000+ applicants, somehow still here).
+            AI rehabilitation work that placed <strong>1st at the NJIT Research Forum</strong>,
+            and a <strong>Cornell Tech AI/ML Fellowship</strong> I found out about three days
+            before the deadline — 4,000+ applicants, somehow still here.
           </p>
           <p>
             Most of my projects exist because something annoyed me and my first instinct
-            was to overengineer a solution. Outside the terminal: museums, strong opinions
-            about typography, and an ongoing search for the perfect warm-black background.
-            This site is my current best attempt.
+            was to overengineer a fix. Outside the terminal: museums, strong opinions about
+            typography, learning French badly, and the endless search for the perfect
+            warm-black background. This site is my current best attempt.
           </p>
         </div>
 

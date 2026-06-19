@@ -11,7 +11,7 @@ const PROJECTS = [
       {
         title: 'SenseLense',
         badge: '🏆 Best AI Analytics — HackHers',
-        desc: 'Practicing a sales pitch is hard when you can\'t see how you come across. SenseLense watches you pitch live — reading your voice, your words, and your facial expressions together — and scores how confident and convincing you actually sound. Built in 24 hours at HackHers.',
+        desc: 'No one tells you how you actually come across when you pitch — SenseLense does. It watches you live, reads your voice, words, and facial expressions together, and scores your confidence and delivery in real time. Built in 24 hours at HackHers.',
         tech: ['Python', 'SQLite', 'React'],
         links: [
           { label: '> demo', url: 'https://devpost.com/software/saleslense' },
@@ -21,7 +21,7 @@ const PROJECTS = [
       },
       {
         title: 'AgentWeave',
-        desc: 'Most fashion apps recommend what\'s trending, not what works for you. AgentWeave looks at your body type first, then finds outfits that are an actual match — not just popular. Built because the gap between "algorithmically recommended" and "genuinely flattering" is enormous.',
+        desc: 'Most fashion apps recommend what\'s trending — AgentWeave looks at what actually fits you. It reads your body type from a photo first, then matches outfits accordingly. Built because "algorithmically popular" and "genuinely flattering" are almost never the same thing.',
         tech: ['CLIP', 'FAISS', 'YOLOv5', 'Firebase', 'React'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/agentweave' },
@@ -29,7 +29,7 @@ const PROJECTS = [
       },
       {
         title: 'Skincare AI Recommender',
-        desc: 'Skincare is a guessing game that costs money every time you guess wrong. Point your webcam at your face and it classifies your skin type, recommends products that match, and shows exactly which part of your face it\'s reading — so you know why it thinks what it thinks.',
+        desc: 'Skincare is a guessing game that costs money every time you guess wrong — this cuts the guesswork. Point your webcam at your face, get your skin type classified, and see exactly which part of your face it\'s reading to make that call. Transparent, not just confident.',
         tech: ['PyTorch', 'FastAPI', 'Firebase'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/prana' },
@@ -37,7 +37,7 @@ const PROJECTS = [
       },
       {
         title: 'Nexus',
-        desc: 'LinkedIn works great if you already have connections. Nexus is for everyone else — a professional networking app built for students breaking in, with AI that helps write outreach that doesn\'t sound like a template, a recruiter mode, and conference discovery so you find the right people, not just the most visible ones.',
+        desc: 'LinkedIn works great if you already have a network — Nexus is built for everyone else. A professional platform for students breaking in, with AI-assisted outreach, a recruiter mode, and conference discovery so you find the right people, not just the most visible ones.',
         tech: ['React', 'Flask', 'SQLite', 'JavaScript'],
         links: [
           { label: '> demo', url: 'https://drive.google.com/file/d/1AkS57aSHBQzu35NG06gR52sXLA4e0DH7/view?usp=sharing' },
@@ -52,7 +52,7 @@ const PROJECTS = [
     items: [
       {
         title: 'NoteShare Platform',
-        desc: 'Students hoard notes on their hard drives while their classmates struggle through the same material. NoteShare is a structured place to upload, browse, and share course notes by subject. Built because Discord channels full of unnamed PDFs are not a system.',
+        desc: 'Students hoard notes on their drives while classmates struggle through the same material — NoteShare fixes that. Upload, browse, and find course notes organized by subject. Built because a Discord channel full of unnamed PDFs is not a system.',
         tech: ['Spring Boot', 'PostgreSQL', 'AWS S3', 'React'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/note-sharing-platform' },
@@ -60,7 +60,7 @@ const PROJECTS = [
       },
       {
         title: 'Tea & Coffee Accessories',
-        desc: 'A real e-commerce store — not a tutorial project. Browse products, manage a cart, and check out with inventory that updates live. Built to actually understand what it takes to ship a working storefront from scratch, not just follow along with one.',
+        desc: 'A real e-commerce store, not a tutorial — browse products, manage a cart, and check out with inventory that updates live. Built to understand what it actually takes to ship a working storefront from scratch, not just follow a guide.',
         tech: ['MySQL', 'PHP', 'AJAX', 'JavaScript'],
         links: [
           { label: '> source', url: 'https://github.com/dhy-ani/ds2338-IT202-Project' },

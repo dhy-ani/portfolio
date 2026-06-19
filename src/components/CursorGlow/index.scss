@@ -1,0 +1,32 @@
+.cursor-glow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  // Offset so the glow is centered on cursor, not top-left
+  margin-left: -250px;
+  margin-top: -250px;
+  background: radial-gradient(
+    circle,
+    rgba(196, 148, 44, 0.055) 0%,
+    rgba(196, 148, 44, 0.022) 35%,
+    transparent 68%
+  );
+  will-change: transform;
+
+  // Hide on touch devices where there's no cursor
+  @media (hover: none) { display: none; }
+
+  // Tone it way down in light mode
+  body.light-mode & {
+    background: radial-gradient(
+      circle,
+      rgba(100, 80, 140, 0.04) 0%,
+      transparent 65%
+    );
+  }
+}
