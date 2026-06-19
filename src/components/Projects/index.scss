@@ -86,7 +86,7 @@
 
 /* ── Front face ───────────────────────────────────────────────────── */
 .card-front {
-  background: rgba(22, 18, 42, 0.8);
+  background: rgba(20, 13, 5, 0.8);
   border: 1px solid transparent;
   padding: 1.8rem;
   position: relative;
@@ -107,7 +107,7 @@
 /* ── Back face ────────────────────────────────────────────────────── */
 .card-back {
   transform: rotateY(180deg);
-  background: rgba(12, 8, 28, 0.98);
+  background: rgba(10, 6, 2, 0.98);
   border: 1px solid rgba(196, 181, 253, 0.18);
   display: flex;
   flex-direction: column;

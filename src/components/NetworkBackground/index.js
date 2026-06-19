@@ -1,14 +1,7 @@
 import { useEffect, useRef } from 'react'
 import './index.scss'
 
-const PALETTE = [
-  [244, 160, 181],  // pink
-  [196, 181, 253],  // lavender
-  [107, 216, 107],  // green
-  [196, 149, 106],  // terracotta
-  [253, 230, 138],  // butter
-]
-
+// Warm gold dust motes — like particles caught in museum gallery lighting
 const NetworkBackground = () => {
   const canvasRef = useRef(null)
 
@@ -24,91 +17,59 @@ const NetworkBackground = () => {
     resize()
     window.addEventListener('resize', resize)
 
-    const W = () => canvas.width
-    const H = () => canvas.height
-
-    // Generate stars — power-law size distribution for realism
-    const makeStars = () => Array.from({ length: 200 }, (_, i) => ({
-      x:           Math.random() * W(),
-      y:           Math.random() * H(),
-      r:           Math.random() ** 2.8 * 3.2 + 0.25,  // mostly tiny, few big
-      base:        0.35 + Math.random() * 0.55,          // base brightness
-      speed:       0.005 + Math.random() * 0.018,
-      phase:       Math.random() * Math.PI * 2,
-      vx:          (Math.random() - 0.5) * 0.055,
-      vy:          (Math.random() - 0.5) * 0.055,
-      isColored:   Math.random() < 0.12,
-      colorIdx:    i % PALETTE.length,
+    const makeMotes = () => Array.from({ length: 90 }, () => ({
+      x:     Math.random() * canvas.width,
+      y:     Math.random() * canvas.height,
+      r:     Math.random() ** 2.2 * 1.8 + 0.3,
+      baseA: 0.06 + Math.random() * 0.22,
+      speed: 0.003 + Math.random() * 0.009,
+      phase: Math.random() * Math.PI * 2,
+      driftX: (Math.random() - 0.5) * 0.18,
+      driftY: -0.04 - Math.random() * 0.12,  // very slow upward drift
+      wobble: (Math.random() - 0.5) * 0.008,
+      // warm palette: gold, amber, or faint burgundy
+      warm: Math.random() < 0.12,
     }))
 
-    let stars = makeStars()
-
-    // Rebuild on resize so stars fill the new canvas
-    const onResize = () => { resize(); stars = makeStars() }
+    let motes = makeMotes()
+    const onResize = () => { resize(); motes = makeMotes() }
     window.addEventListener('resize', onResize)
 
-    const CONNECT_DIST = 120
-
     const tick = () => {
-      ctx.clearRect(0, 0, W(), H())
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
 
-      // Update positions
-      stars.forEach(s => {
-        s.phase += s.speed
-        s.x += s.vx
-        s.y += s.vy
-        if (s.x < -10)      s.x = W() + 10
-        if (s.x > W() + 10) s.x = -10
-        if (s.y < -10)      s.y = H() + 10
-        if (s.y > H() + 10) s.y = -10
-      })
+      motes.forEach(m => {
+        m.phase  += m.speed
+        m.x      += m.driftX + Math.sin(m.phase * 0.7) * m.wobble * 30
+        m.y      += m.driftY
 
-      // Constellation lines — drawn FIRST (below stars)
-      for (let i = 0; i < stars.length; i++) {
-        for (let j = i + 1; j < stars.length; j++) {
-          const dx = stars[i].x - stars[j].x
-          const dy = stars[i].y - stars[j].y
-          const d  = Math.hypot(dx, dy)
-          if (d < CONNECT_DIST) {
-            // Only connect if both stars are reasonably bright
-            const alpha = (1 - d / CONNECT_DIST) * 0.12 * Math.min(stars[i].base, stars[j].base)
-            ctx.beginPath()
-            ctx.moveTo(stars[i].x, stars[i].y)
-            ctx.lineTo(stars[j].x, stars[j].y)
-            ctx.strokeStyle = `rgba(210,205,240,${alpha})`
-            ctx.lineWidth   = 0.35
-            ctx.stroke()
-          }
-        }
-      }
+        // wrap
+        if (m.y < -4)                m.y = canvas.height + 4
+        if (m.x < -4)                m.x = canvas.width  + 4
+        if (m.x > canvas.width  + 4) m.x = -4
 
-      // Stars
-      stars.forEach(s => {
-        const alpha = s.base * (0.55 + 0.45 * Math.sin(s.phase))
+        const alpha = m.baseA * (0.5 + 0.5 * Math.sin(m.phase))
 
-        if (s.isColored) {
-          const [r, g, b] = PALETTE[s.colorIdx]
-          ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`
-        } else {
-          // Blue-white star color — natural starfield
-          ctx.fillStyle = `rgba(220,218,245,${alpha})`
+        const [r, g, b] = m.warm
+          ? [160, 30, 40]     // faint burgundy accent
+          : [210, 165, 60]    // warm gold
+
+        if (m.r > 1.1) {
+          // soft glow for larger motes
+          const grd = ctx.createRadialGradient(m.x, m.y, 0, m.x, m.y, m.r * 5)
+          grd.addColorStop(0,   `rgba(${r},${g},${b},${alpha * 0.55})`)
+          grd.addColorStop(0.4, `rgba(${r},${g},${b},${alpha * 0.15})`)
+          grd.addColorStop(1,   `rgba(${r},${g},${b},0)`)
+          ctx.beginPath()
+          ctx.arc(m.x, m.y, m.r * 5, 0, Math.PI * 2)
+          ctx.fillStyle = grd
+          ctx.fill()
         }
 
         ctx.beginPath()
-        ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2)
+        ctx.arc(m.x, m.y, m.r, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(${r},${g},${b},${alpha})`
         ctx.fill()
-
-        // Diffuse glow for the larger stars
-        if (s.r > 1.8) {
-          const glow = ctx.createRadialGradient(s.x, s.y, 0, s.x, s.y, s.r * 4.5)
-          const gc = s.isColored ? PALETTE[s.colorIdx] : [220, 218, 245]
-          glow.addColorStop(0,   `rgba(${gc[0]},${gc[1]},${gc[2]},${alpha * 0.3})`)
-          glow.addColorStop(1,   `rgba(${gc[0]},${gc[1]},${gc[2]},0)`)
-          ctx.beginPath()
-          ctx.arc(s.x, s.y, s.r * 4.5, 0, Math.PI * 2)
-          ctx.fillStyle = glow
-          ctx.fill()
-        }
       })
 
       animId = requestAnimationFrame(tick)
