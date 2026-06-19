@@ -14,7 +14,7 @@ const ROLES = [
     badge: 'Incoming · Summer 2026',
     skills: ['Python', 'AWS Bedrock', 'Lambda', 'DynamoDB', 'Terraform'],
     points: [
-      'Designing a multi-step AI agent on AWS Bedrock to validate stored procedure outputs against a 20-point QA checklist — automating a previously manual review process.',
+      'Designing a multi-step AI agent on AWS Bedrock to validate stored procedure outputs against a QA checklist, automating a previously manual review process.',
       'Architecting serverless infrastructure (Lambda, API Gateway, S3, DynamoDB, Terraform) for scalable cloud deployments.',
     ],
   },
@@ -28,7 +28,7 @@ const ROLES = [
     skills: ['Python', 'Pandas', 'Scikit-Learn', 'Matplotlib'],
     points: [
       'Selected nationally from 4,000+ applicants for a rigorous year-long AI Fellowship at Cornell Tech.',
-      'Building ML expertise through an accelerated Python bootcamp — data wrangling, predictive modeling, and performance evaluation with Pandas, Scikit-Learn, and Matplotlib.',
+      'Building ML expertise through an accelerated Python bootcamp covering data wrangling, predictive modeling, and performance evaluation with Pandas, Scikit-Learn, and Matplotlib.',
       'Leading an AIStudio project with an industry sponsor (Aug 2026–Mar 2027) to ship a deployment-ready ML product presented to senior executive leadership.',
     ],
   },
@@ -41,7 +41,7 @@ const ROLES = [
     badge: '1st Place · Honors Research Forum · 40+ teams',
     skills: ['Python', 'OpenCV', 'CNN'],
     points: [
-      'Built an AI rehabilitation tool for aquatic therapy — pose estimation via OpenCV and Python with a custom preprocessing pipeline (frame differencing, landmark smoothing) that improved keypoint detection by 35%.',
+      'Built an AI rehabilitation tool for aquatic therapy using pose estimation via OpenCV and Python, with a custom preprocessing pipeline (frame differencing, landmark smoothing) that significantly improved keypoint detection accuracy.',
       'Trained and evaluated CNN architectures on 2,400+ annotated video clips, selecting the best accuracy-latency tradeoff for clinical deployment.',
       'Placed 1st at NJIT\'s Honors Interdisciplinary Research Forum (40+ teams); selected as a Finalist for the Undergraduate Research and Innovation Program.',
     ],
@@ -54,7 +54,7 @@ const ROLES = [
     color: '#e8c040',
     skills: ['Figma'],
     points: [
-      'Led qualitative research for inclusive interface design — conducted 25+ interviews with older adults to uncover accessibility gaps in digital safety.',
+      'Led qualitative research for inclusive interface design, conducting interviews with older adults to uncover accessibility gaps in digital safety tools.',
       'Delivered 3 UX storyboard designs and strategy reports; applied persona mapping, segmentation, and journey mapping to influence UI changes for campus-wide platforms.',
     ],
   },

@@ -24,21 +24,24 @@ const About = () => {
 
         <div ref={textRef} className="scroll-reveal about-text">
           <p>
-            I'm Dhyani — CS + AI student at NJIT, international student, and someone
-            who is currently teaching herself French entirely by choice. Slowly. But committed.
+            CS and AI student at NJIT, international student, and someone who's done
+            UX research, AI rehabilitation work that won first place at the NJIT Honors
+            Research Forum, and landed an <strong>AI/ML Fellowship at Cornell Tech</strong>.
+            Currently incoming at <strong>TCS</strong> this summer building agentic AI systems.
+            Most of my projects started as something that annoyed me.
           </p>
           <p>
-            I got into coding because I liked making things look good. I stayed because I
-            realized you could make things <em>think</em> too. Since then: UX research,
-            AI rehabilitation work that placed <strong>1st at the NJIT Research Forum</strong>,
-            and a <strong>Cornell Tech AI/ML Fellowship</strong> I found out about three days
-            before the deadline — 4,000+ applicants, somehow still here.
+            Working on a few things right now: a <strong>digital twin</strong> that'll live
+            right here on this page — once it's up, you'll be able to ask it anything about
+            me and it'll actually know. Also building <strong>StockSense</strong>, an AI tool
+            that pulls from market data, tracks news sentiment and social signals, and surfaces
+            pattern-based insights for retail investors who are tired of guessing. It's meant
+            to feel less like a dashboard and more like a thinking partner.
           </p>
           <p>
-            Most of my projects exist because something annoyed me and my first instinct
-            was to overengineer a fix. Outside the terminal: museums, strong opinions about
-            typography, learning French badly, and the endless search for the perfect
-            warm-black background. This site is my current best attempt.
+            Also learning French. Not consistently, but genuinely working on it. Outside the
+            terminal: museums, strong opinions about typography, and the endless search for
+            the perfect warm-black background. This site is the current best attempt.
           </p>
         </div>
 
