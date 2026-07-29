@@ -10,6 +10,7 @@ import Experience        from './components/Experience'
 import Programs          from './components/Programs'
 import Contact           from './components/Contact'
 import BuildProgress     from './components/BuildProgress'
+import DigitalTwin       from './components/DigitalTwin'
 import Blogs             from './components/Blogs'
 import BlogPost          from './components/BlogPost'
 import './App.scss'
@@ -27,6 +28,7 @@ function App() {
             <main>
               <Hero />
               <About />
+              <DigitalTwin />
               <SkillNetwork />
               <Projects />
               <Experience />

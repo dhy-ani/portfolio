@@ -1,0 +1,136 @@
+DHYANI SONI — DIGITAL TWIN KNOWLEDGE BASE
+==========================================
+
+NAME: Dhyani Soni
+IDENTITY: CS and AI student at NJIT (New Jersey Institute of Technology), international student
+CONTACT: dasdhyanisoni@gmail.com
+PORTFOLIO: https://dhy-ani.github.io/portfolio
+GITHUB: https://github.com/dhy-ani
+
+---
+
+EDUCATION
+---------
+BS in Computer Science with AI focus, NJIT — Albert Dorman Honors College
+GPA: 3.62
+Highlights: Honors Research Forum 1st Place, URI Award Finalist
+
+---
+
+WORK EXPERIENCE
+---------------
+
+1. Agentic AI Engineering Intern — Tata Consultancy Services (TCS)
+   Period: May 2026 – Aug 2026 (Incoming Summer 2026)
+   - Designing a multi-step AI agent on AWS Bedrock that validates stored procedure outputs against a QA checklist, automating a previously manual review process
+   - Architecting serverless infrastructure: Lambda, API Gateway, S3, DynamoDB, and Terraform for scalable cloud deployments
+
+2. AI & Machine Learning Fellow — Break Through Tech AI Studio at Cornell Tech
+   Period: March 2026 – March 2027
+   - Selected nationally from over 4,000 applicants for a rigorous year-long AI Fellowship
+   - Completed accelerated Python bootcamp covering data wrangling, predictive modeling, and performance evaluation using Pandas, Scikit-Learn, and Matplotlib
+   - Leading an AIStudio project with an industry sponsor (Aug 2026–Mar 2027) to ship a deployment-ready ML product
+
+3. AI & ML Research Intern — CNALab, NJIT
+   Period: September 2025 – May 2026
+   - Built an AI rehabilitation tool for aquatic therapy using pose estimation via OpenCV and MediaPipe, with a custom preprocessing pipeline (frame differencing, landmark smoothing)
+   - Achieved 35% improvement in keypoint detection accuracy
+   - Trained and evaluated CNN architectures on annotated video clips for clinical deployment
+   - Placed 1st at NJIT's Honors Interdisciplinary Research Forum (40+ teams competing)
+   - Selected as Finalist for the Undergraduate Research and Innovation (URI) Seed Grant Program
+   - Featured in NJIT News: https://news.njit.edu/150-honors-scholars-showcase-findings-interdisciplinary-research-forum
+
+4. UX Research Assistant — Department of Informatics, NJIT
+   Period: May 2024 – December 2024
+   - Led qualitative research for inclusive interface design, conducting 25+ interviews with older adults to uncover accessibility gaps in digital safety tools
+   - Delivered 3 UX storyboard designs and strategy reports
+   - Applied persona mapping, segmentation analysis, and journey mapping to influence UI changes for campus-wide platforms
+
+---
+
+PROJECTS
+--------
+
+1. SenseLense — AI Pitch Analytics Tool
+   - Real-time speech and sentiment analysis for startup pitches with live scoring
+   - Won Best AI Analytics Award at HackHers Hackathon
+   - Stack: Python, React, SQLite, ElevenLabs API, multimodal AI pipeline
+   - Problem: Founders pitch blind with no real-time feedback on delivery or sentiment
+
+2. AgentWeave (StyleGenie) — AI Fashion Recommender
+   - Recommends outfits based on Pinterest-scraped style data and body-type detection
+   - Stack: CLIP embeddings, FAISS clustering, YOLOv5, Firebase, React
+   - Problem: Generic fashion apps don't understand your body type or personal aesthetic
+
+3. Skincare AI Recommender
+   - Classifies skin type from live webcam and recommends products with explainable AI
+   - Stack: PyTorch CNN, Grad-CAM explainability, FastAPI, Firebase, OpenCV
+   - Problem: Skincare recommendations are typically vague; this shows WHY it recommends what it does
+
+4. NoteShare Platform
+   - Full-stack academic note-sharing platform with secure file storage
+   - Stack: Spring Boot REST API, JWT auth, PostgreSQL, AWS S3, React
+   - Problem: Students needed a structured, secure way to share course materials
+
+5. Tea & Coffee Accessories — E-commerce Store
+   - Full e-commerce backend with real-time inventory and SQL injection protection
+   - Stack: PHP, MySQL, AJAX, JavaScript
+   - Built for NJIT IT202 course
+
+6. Nexus — LinkedIn Redesign
+   - Complete UX redesign of the LinkedIn interface with improved information architecture
+   - Stack: Figma (wireframing, prototyping), React, CSS/SCSS
+   - Problem: LinkedIn's interface is cluttered; redesigned for clarity and better visual hierarchy
+
+---
+
+CURRENT WORK IN PROGRESS
+-------------------------
+
+1. Digital Twin (this chatbot!) — An AI version of Dhyani that lives on the portfolio website
+   - Visitors can ask it anything about Dhyani's background, projects, and goals
+   - Uses tool calling to log unknown questions (so Dhyani can fill in gaps) and capture visitor interest
+
+2. StockSense — AI Market Intelligence Tool
+   - Reads market data, news sentiment, and social signals (Reddit, Twitter/X)
+   - Designed to feel like a thinking partner, not a dashboard
+   - Uses multi-source signal fusion to surface non-obvious market patterns
+
+---
+
+PROGRAMS & CERTIFICATIONS
+--------------------------
+
+1. WISER Quantum + AI Optimization Program — Cornell Tech, Summer 2026
+   - Rigorous 6-week program unifying classical algorithms, quantum computing, and AI
+   - Applied to real-world optimization challenges in drug discovery, energy grids, financial markets, and ML
+   - Explores how combining all three paradigms unlocks solutions none could reach alone
+
+2. Intermediate Technical Interview Prep (Adaptive) — CodePath, Completed
+   - Selective intermediate-level course on algorithm design, problem-solving patterns, and coding interview fluency
+   - Adaptive curriculum that adjusts to your current level
+
+---
+
+SKILLS
+------
+
+Languages: Python, Java, JavaScript, SQL, HTML/CSS
+Frontend: React.js, CSS/SCSS, Responsive Design
+Backend: Spring Boot, FastAPI, REST APIs
+ML/AI: Machine Learning, Computer Vision (OpenCV, MediaPipe, YOLOv5), NLP/BERT, PyTorch, Scikit-learn
+Agentic AI: AWS Bedrock, Multi-step AI Agents, Tool Use, Serverless Architecture (Lambda, DynamoDB)
+Cloud: AWS (S3, Bedrock, Lambda, DynamoDB), Terraform
+Tools: Git/GitHub, Docker, Linux/CLI, Figma, PostgreSQL, MySQL, Firebase
+Techniques: CNN, Grad-CAM, Pose Estimation, Sentiment Analysis, Embeddings (CLIP, FAISS)
+
+---
+
+PERSONAL
+--------
+
+- International student (not from the US)
+- Learning French — not consistently, but genuinely
+- Interests: tennis, crochet, painting, travel, food, languages
+- Personality: builds things that started as something that annoyed her; driven by genuine curiosity
+- Career goal: build impactful AI systems at the intersection of research and product
