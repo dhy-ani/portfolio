@@ -291,40 +291,57 @@ body.light-mode {
   // Digital Twin
   .twin-intro { color: #7a5e72 !important; }
   .twin-wrap {
-    background: rgba(255, 246, 250, 0.96) !important;
-    border-color: rgba(184, 52, 104, 0.2) !important;
-    box-shadow: 0 8px 40px rgba(0,0,0,0.06) !important;
+    background: rgba(255, 246, 250, 0.97) !important;
+    border-color: rgba(184, 52, 104, 0.22) !important;
+    box-shadow: 0 0 0 1px rgba(184,52,104,0.06), 0 12px 60px rgba(0,0,0,0.06) !important;
+    &::before { background: linear-gradient(90deg, transparent, rgba(184,52,104,0.8), rgba(125,74,156,0.6), transparent) !important; }
   }
-  .twin-header {
-    background: rgba(253,240,246,0.95) !important;
-    border-bottom-color: rgba(184,52,104,0.12) !important;
-  }
-  .twin-model { color: #9a7890 !important; }
-  .twin-messages {
-    scrollbar-color: rgba(184,52,104,0.2) transparent !important;
-    &::-webkit-scrollbar-thumb { background: rgba(184,52,104,0.2) !important; }
-  }
-  .twin-msg-prefix {
-    .twin-msg--user & { color: #9c7800 !important; }
-    .twin-msg--assistant & { color: #7d4a9c !important; }
+  .twin-header { background: rgba(253,240,246,0.95) !important; border-bottom-color: rgba(184,52,104,0.12) !important; }
+  .twin-avatar-sm { color: #b83468 !important; text-shadow: none !important; }
+  .twin-name { color: #3a1d2e !important; }
+  .twin-status { color: #22a06b !important; }
+  .twin-welcome-text { color: #7a5e72 !important; }
+  .twin-avatar-lg { color: #b83468 !important; text-shadow: 0 0 20px rgba(184,52,104,0.3) !important; }
+  .twin-messages { scrollbar-color: rgba(184,52,104,0.2) transparent !important; }
+  .twin-msg-label {
+    .twin-msg--user &      { color: rgba(156,120,0,0.7) !important; }
+    .twin-msg--assistant & { color: rgba(125,74,156,0.7) !important; }
   }
   .twin-msg-text {
-    .twin-msg--user & { color: #180f1a !important; border-left-color: rgba(156,120,0,0.3) !important; }
-    .twin-msg--assistant & { color: #3a1d2e !important; border-left-color: rgba(125,74,156,0.3) !important; }
+    .twin-msg--user & {
+      color: #180f1a !important;
+      background: rgba(156,120,0,0.06) !important;
+      border-color: rgba(156,120,0,0.15) !important;
+    }
+    .twin-msg--assistant & {
+      color: #3a1d2e !important;
+      background: rgba(125,74,156,0.06) !important;
+      border-color: rgba(125,74,156,0.13) !important;
+    }
   }
-  .twin-typing span { background: #7d4a9c !important; }
-  .twin-prompt { color: #9c7800 !important; }
-  .twin-input { color: #180f1a !important; &::placeholder { color: #b8a0b0 !important; } }
-  .twin-input-row { background: rgba(253,240,246,0.7) !important; border-top-color: rgba(184,52,104,0.1) !important; }
+  .twin-typing {
+    background: rgba(125,74,156,0.06) !important;
+    border-color: rgba(125,74,156,0.13) !important;
+    span { background: #7d4a9c !important; }
+  }
+  .twin-input {
+    background: rgba(255,246,250,0.8) !important;
+    border-color: rgba(184,52,104,0.2) !important;
+    color: #180f1a !important;
+    &::placeholder { color: #b8a0b0 !important; }
+    &:focus { border-color: rgba(184,52,104,0.5) !important; background: rgba(255,246,250,1) !important; }
+  }
+  .twin-input-row { background: rgba(253,240,246,0.8) !important; border-top-color: rgba(184,52,104,0.1) !important; }
   .twin-send {
-    color: #b83468 !important; border-color: rgba(184,52,104,0.3) !important;
-    &:hover:not(:disabled) { background: rgba(184,52,104,0.08) !important; border-color: rgba(184,52,104,0.6) !important; }
+    background: rgba(184,52,104,0.9) !important; color: #fff !important;
+    &:hover:not(:disabled) { background: rgba(184,52,104,1) !important; }
+    &:disabled { background: rgba(184,52,104,0.2) !important; color: rgba(184,52,104,0.4) !important; }
   }
   .twin-chip {
-    color: #7a5e72 !important; border-color: rgba(184,52,104,0.2) !important; background: rgba(184,52,104,0.03) !important;
-    &:hover { color: #b83468 !important; border-color: rgba(184,52,104,0.5) !important; background: rgba(184,52,104,0.07) !important; }
+    color: #7a5e72 !important; border-color: rgba(184,52,104,0.22) !important;
+    &:hover { color: #b83468 !important; border-color: rgba(184,52,104,0.55) !important; background: rgba(184,52,104,0.07) !important; }
   }
-  .twin-error { color: #b83468 !important; border-color: rgba(184,52,104,0.25) !important; background: rgba(184,52,104,0.04) !important; }
+  .twin-error { color: #b83468 !important; border-color: rgba(184,52,104,0.25) !important; background: rgba(184,52,104,0.05) !important; }
 
   // About
   .about-text p { color: #3a1d2e !important; }
