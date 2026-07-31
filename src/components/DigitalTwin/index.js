@@ -30,16 +30,23 @@ const DigitalTwin = () => {
   const send = async (text) => {
     const msg = (text || input).trim()
     if (!msg || loading) return
-    if (!API_URL) {
-      setError('Twin API is being set up. Check back soon.')
-      return
-    }
 
     setInput('')
     setError(null)
     setMessages(prev => [...prev, { role: 'user', content: msg }])
     setLoading(true)
     inputRef.current?.focus()
+
+    if (!API_URL) {
+      setTimeout(() => {
+        setMessages(prev => [...prev, {
+          role: 'assistant',
+          content: "I'm still being set up — the backend deploys soon. In the meantime, feel free to explore the portfolio or reach out directly!"
+        }])
+        setLoading(false)
+      }, 600)
+      return
+    }
 
     try {
       const res = await fetch(`${API_URL}/chat`, {
@@ -56,8 +63,10 @@ const DigitalTwin = () => {
         { role: 'assistant', content: data.response },
       ])
     } catch {
-      setError('Twin is temporarily offline. Try again in a moment.')
-      setMessages(prev => prev.slice(0, -1))
+      setMessages(prev => [...prev, {
+        role: 'assistant',
+        content: "I'm having trouble connecting right now. Try again in a moment!"
+      }])
     } finally {
       setLoading(false)
     }

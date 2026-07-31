@@ -9,7 +9,10 @@ import os
 
 load_dotenv(override=True)
 
-client = OpenAI()
+client = OpenAI(
+    api_key=os.getenv("OPENROUTER_API_KEY"),
+    base_url="https://openrouter.ai/api/v1",
+)
 app = FastAPI(title="Dhyani Soni — Digital Twin API")
 
 app.add_middleware(
@@ -46,7 +49,7 @@ def chat(req: ChatRequest):
     messages.append({"role": "user", "content": req.message})
 
     response = client.chat.completions.create(
-        model="gpt-4o-mini",
+        model="openai/gpt-4o-mini",
         messages=messages,
         tools=tools,
         max_tokens=500,
@@ -58,7 +61,7 @@ def chat(req: ChatRequest):
         messages.append(msg)
         messages.extend(results)
         response = client.chat.completions.create(
-            model="gpt-4o-mini",
+            model="openai/gpt-4o-mini",
             messages=messages,
             tools=tools,
             max_tokens=500,
