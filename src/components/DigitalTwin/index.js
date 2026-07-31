@@ -14,8 +14,8 @@ const SUGGESTIONS = [
 const DigitalTwin = () => {
   const titleRef  = useScrollReveal(0.2)
   const wrapRef   = useScrollReveal(0.1)
-  const bottomRef = useRef(null)
-  const inputRef  = useRef(null)
+  const messagesRef = useRef(null)
+  const inputRef    = useRef(null)
 
   const [input,    setInput]    = useState('')
   const [messages, setMessages] = useState([])
@@ -24,7 +24,8 @@ const DigitalTwin = () => {
   const [error,    setError]    = useState(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    const el = messagesRef.current
+    if (el) el.scrollTop = el.scrollHeight
   }, [messages, loading])
 
   const send = async (text) => {
@@ -128,7 +129,7 @@ const DigitalTwin = () => {
 
             {/* Messages */}
             {hasChat && (
-              <div className="twin-messages">
+              <div className="twin-messages" ref={messagesRef}>
                 {messages.map((m, i) => (
                   <div key={i} className={`twin-msg twin-msg--${m.role}`}>
                     <span className="twin-msg-label">
@@ -146,7 +147,6 @@ const DigitalTwin = () => {
                 )}
 
                 {error && <p className="twin-error">{error}</p>}
-                <div ref={bottomRef} />
               </div>
             )}
           </div>
