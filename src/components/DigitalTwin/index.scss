@@ -4,8 +4,8 @@
 
 .twin-intro {
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 1.05rem;
-  color: #9a9080;
+  font-size: 1.15rem;
+  color: #b8b0a4;
   line-height: 1.7;
   max-width: 600px;
   margin: 0.5rem 0 2.4rem 0;
@@ -74,7 +74,7 @@
 
 .twin-name {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.82rem;
+  font-size: 0.95rem;
   color: #ddd8cc;
   letter-spacing: 0.08em;
   font-weight: 700;
@@ -85,7 +85,7 @@
   align-items: center;
   gap: 6px;
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.72rem;
+  font-size: 0.85rem;
   color: #34d399;
   letter-spacing: 0.1em;
 }
@@ -141,8 +141,8 @@
 
 .twin-welcome-text {
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 1.08rem;
-  color: #9a9080;
+  font-size: 1.25rem;
+  color: #c8c0b4;
   line-height: 1.7;
   max-width: 480px;
   margin: 0;
@@ -159,12 +159,12 @@
 
 .twin-chip {
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 0.9rem;
-  color: #9a9080;
+  font-size: 1.02rem;
+  color: #b8b0a0;
   background: rgba(255,255,255,0.03);
-  border: 1px solid rgba(196,148,44,0.2);
+  border: 1px solid rgba(196,148,44,0.25);
   border-radius: 20px;
-  padding: 6px 16px;
+  padding: 8px 18px;
   cursor: pointer;
   transition: color 0.18s, border-color 0.18s, background 0.18s, transform 0.18s;
 
@@ -207,7 +207,7 @@
 
 .twin-msg-label {
   font-family: 'Courier New', Courier, monospace;
-  font-size: 0.7rem;
+  font-size: 0.82rem;
   letter-spacing: 0.1em;
   font-weight: 700;
   text-transform: uppercase;
@@ -218,14 +218,14 @@
 
 .twin-msg-text {
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 1.02rem;
+  font-size: 1.15rem;
   line-height: 1.75;
   margin: 0;
-  padding: 0.75rem 1rem;
+  padding: 0.85rem 1.1rem;
   border-radius: 10px;
 
   .twin-msg--user & {
-    color: #e8e0cc;
+    color: #ede8dc;
     background: rgba(253,230,138,0.07);
     border: 1px solid rgba(253,230,138,0.14);
     border-bottom-right-radius: 3px;
@@ -233,7 +233,7 @@
   }
 
   .twin-msg--assistant & {
-    color: #ddd8e8;
+    color: #e4e0f0;
     background: rgba(125,211,252,0.06);
     border: 1px solid rgba(125,211,252,0.12);
     border-bottom-left-radius: 3px;
@@ -298,12 +298,12 @@
   outline: none;
   padding: 0.65rem 1rem;
   font-family: 'HelveticaNeue', Helvetica, Arial, sans-serif;
-  font-size: 1.02rem;
-  color: #e8e0cc;
+  font-size: 1.1rem;
+  color: #ede8dc;
   caret-color: #fde68a;
   transition: border-color 0.2s, background 0.2s;
 
-  &::placeholder { color: #6a6050; }
+  &::placeholder { color: #7a7060; }
   &:focus {
     border-color: rgba(196,148,44,0.45);
     background: rgba(255,255,255,0.06);
