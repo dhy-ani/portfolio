@@ -55,16 +55,24 @@ def chat(req: ChatRequest):
         max_tokens=500,
     )
 
-    while response.choices[0].finish_reason == "tool_calls":
+    print("[DEBUG] finish_reason:", response.choices[0].finish_reason)
+    print("[DEBUG] tool_calls:", response.choices[0].message.tool_calls)
+
+    while response.choices[0].message.tool_calls:
         msg = response.choices[0].message
         results = handle_tool_calls(msg.tool_calls)
-        messages.append(msg)
+
+        messages.append(msg.model_dump(exclude_unset=True))
         messages.extend(results)
+
         response = client.chat.completions.create(
             model="openai/gpt-4o-mini",
             messages=messages,
             tools=tools,
             max_tokens=500,
         )
+
+        print("[DEBUG] finish_reason:", response.choices[0].finish_reason)
+        print("[DEBUG] tool_calls:", response.choices[0].message.tool_calls)
 
     return {"response": response.choices[0].message.content}
